@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="no">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,14 +9,14 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><img src="Images/logo4.png" alt="Spegle Logo" style="height: 80px; margin: -0.2em;"></a>
+        <a class="navbar-brand" href="#"><img src="Images/logo4.png" alt="Spegle Logo" style="height: 80px; margin: -0.2em;"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav" style="margin-left: auto;">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Destinasjoner</a>
@@ -30,79 +30,85 @@
               <a class="nav-link" href="booking.html">Booking</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Kontakt oss</a>
+              <a class="nav-link" href="kontakt.html">Kontakt oss</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <section class="pb-4">
-      <div class="bg-white border rounded-5">
-        <section class="p-4 d-flex justify-content-center w-100" style="border-radius: .5rem .5rem 0 0; background-color:#fbfbfb;">
-          <div class="row">
-            <div class="col-lg-6 col-md-12 mb-4">
-              <section>
-                <div>
-                  <p class="mb-1"><strong>Standard length question?</strong></p>
-                  <p class="mb-1"><u>Higlighted short answer.</u> And some kind of detailed list.</p>
-                  <ul>
-                    <li>list item 1</li>
-                    <li>list item 2</li>
-                    <li>list item 3</li>
-                  </ul>
-                </div>
-                <div>
-                  <p class="mb-1"><strong>Short question?</strong></p>
-                  <p class="mb-1"><u>Higlighted short answer.</u></p>
-                  <p class="mb-1">Second part of the answer with more details.</p>
-                  <p>Final part of the answer full of detais and Lorem ipsum dolor sit amet consecteturadipisicing elit.</p>
-                </div>
-                <div>
-                  <p class="mb-1"><strong>The longest question in this faq. Made up of two sentences in order to span to the next line?</strong></p>
-                  <p class="mb-1"><u>Higlighted short answer.</u></p>
-                  <p class="mb-1">Second part of the answer with more details.</p>
-                  <p>Final part of the answer full of detais and Lorem ipsum dolor sit amet consecteturadipisicing elit.</p>
-                </div>
-                <div>
-                  <p class="mb-1"><strong>Slightly longer question?</strong></p>
-                  <p class="mb-1"><u>Higlighted short answer.</u></p>
-                  <p class="mb-1">Second part of the answer with more details.</p>
-                  <p>Final part of the answer full of detais and Lorem ipsum dolor sit amet consecteturadipisicing elit.</p>
-                </div>
-              </section>
-            </div>
-            <div class="col-lg-6 col-md-12 text-center">
-              <section>
-                <p><span class="fw-bold">Still have any questions? Contact us to get your answer!</span></p>
-                <form action="" method="POST" class="faq-contact-form">
-                  <div class="form-outline mb-4">
-                    <input type="email" id="form4Example2" class="form-control" name="email" required="">
-                    <label class="form-label" for="form4Example2" style="margin-left: 0px;">Email address</label>
-                  <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 88.8px;"></div><div class="form-notch-trailing"></div></div></div>
-                  <div class="form-outline mb-4">
-                    <textarea class="form-control" id="form4Example3" rows="4" name="message" required=""></textarea>
-                    <label class="form-label" for="form4Example3" style="margin-left: 0px;">Message</label>
-                  <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 60px;"></div><div class="form-notch-trailing"></div></div></div>
-                  <input type="submit" class="btn btn-primary btn-block mb-4 faq-contact-form-submit" value="SEND">
-                  <input type="hidden" name="recaptcha-response" id="recaptchaFaqForm">
-                </form>
-              </section>
-            </div>
+    <div id="carouselExampleDark" class="carousel carousel-light slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner" style="width: 100%; margin-left: auto; margin-right: auto;">
+        <div class="carousel-item active" data-bs-interval="5000">
+          <img src="Images/Hytte.jpg" class="d-block w-100" alt="Fjell">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
           </div>
-        </section>
-      </section>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="Images/Fjell.jpg" class="d-block w-100" alt="Familietur">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="Images/Sykkel.jpg" class="d-block w-100" alt="Sykkeltur">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div class="container pb-3" style="padding-top: 2em; padding-bottom: 2em;">
+        <div class="row">
+          <div class="col col-lg-4 col-md-6 col-sm-12 col-12"> 
+            <img src="Images/Hytte1.jpg" alt="Hytte1" style="width: 80%;">
+            <h3>Lorem ipsum dolor sit</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate nostrum ducimus provident officia</p>
+            <a button type="button" class="btn btn-primary btn-sm" href="#" style="width: 30%; margin-bottom: 2em;">Les mer</button></a>
+          </div>
+          <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
+            <img src="Images/Polse.jpg" alt="Pølse" style="width: 80%;">
+            <h3>Lorem ipsum dolor sit</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate nostrum ducimus provident officia</p>
+            <a button type="button" class="btn btn-primary btn-sm" href="#" style="width: 30%; margin-bottom: 2em;">Les mer</button></a>
+          </div>
+          <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
+            <img src="Images/Hytte3.jpg" alt="Hytte3" style="width: 80%;">
+            <h3>Lorem ipsum dolor sit</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate nostrum ducimus provident officia</p>
+            <a button type="button" class="btn btn-primary btn-sm" href="#" style="width: 30%; margin-bottom: 2em;">Les mer</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="container" style="padding-bottom: 2em;">
+        <h2>Oversikt over området</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11456.86946919497!2d8.198331289622407!3d59.494638774431664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4638b6a82c13cfe9%3A0xc2503d466b537ae8!2sOftevatn!5e0!3m2!1sno!2sno!4v1645792042690!5m2!1sno!2sno" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
       <footer class="bg-dark text-center text-white">
         <div class="container p-4">
           <section class="mb-3">
             <a class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/sanel.pitnjakovic" role="button">
-                <img src="Images/Facebook1R.png" alt="Facebook" style="width: 40px;">
-            </a>
+              <img src="Images/Facebook1R.png" alt="Facebook" style="width: 40px;"></a>
             <a class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/sanel.pitnjakovic" role="button">
-                <img src="Images/Instagram.jpg" alt="Instagram" style="width: 40px;">
-            </a>
+              <img src="Images/Instagram.jpg" alt="Instagram" style="width: 40px;"></a>
             <a class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/sanel.pitnjakovic" role="button">
-                <img src="Images/LinkedinR.png" alt="LinkedIn" style="width: 40px;">
-            </a>
+              <img src="Images/LinkedinR.png" alt="LinkedIn" style="width: 40px;"></a>
           </section>
           <p class="text-center p-3">© 2022 Copyright:</p>
         </div>
