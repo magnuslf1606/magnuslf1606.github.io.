@@ -1,3 +1,48 @@
+.imgIndex {
+    width: 80%;
+}
+.mobil {
+    width: 100%;
+    display: none;
+}
+.bookingImg {
+    width: 400px;
+    float: right;
+    padding: 1em;
+}
+
+  @media (max-width:800px) {
+    .carousel {
+    display:none;
+    }
+
+    #carouselExampleControls { display: block; }
+    #carouselExampleControls2 { display: block; }
+    #carouselExampleControls3 { display: block; }
+    #carouselExampleControls4 { display: block; }
+    #carouselExampleControls5 { display: block; }
+    #carouselExampleControls6 { display: block; }
+
+    .mobil {
+        display: block;
+    }
+    .col {
+        margin-left: 6em;
+    } 
+    .col button {
+        margin-bottom: 1em;
+    } 
+    .row {
+        margin-right: 4em;
+    }
+    
+}
+    @media (max-width:515px) {
+      .bookingImg {
+          width: 300px;
+      }
+    }
+
 .modal-button {
     align-items: center;
     background-color: #0A66C2;
@@ -87,8 +132,7 @@
       font-weight: bold;
 }
   
-  .close:hover,
-  .close:focus {
+  .close:hover, .close:focus {
       color: #000;
       text-decoration: none;
       cursor: pointer;
@@ -115,9 +159,4 @@
     height: 100%;
     width: 100%;
     position: absolute;
-}
-.bookingImg {
-    width: 400px;
-    float: right;
-    padding: 1em;
 }
