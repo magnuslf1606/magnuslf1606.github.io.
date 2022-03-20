@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="no">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,14 +11,14 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="Images/logo4.png" alt="Spegle Logo" style="height: 80px; margin: -0.2em;"></a>
+        <a class="navbar-brand" href="index.html"><img src="Images/logo4.png" alt="Spegle Logo" style="height: 80px; margin: -0.2em;"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav" style="margin-left: auto;">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Destinasjoner</a>
@@ -29,7 +29,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="booking.html">Booking</a>
+              <a class="nav-link active" aria-current="page" href="#">Booking</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="kontakt.html">Kontakt oss</a>
@@ -37,105 +37,322 @@
           </ul>
         </div>
       </div>
-    </nav>    
-    <div id="carouselExampleDark" class="carousel carousel-light slide" data-bs-ride="carousel" >
-      <div class="carousel-indicators" >
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </nav>
+    <h2 class="text-center pt-4 container-fluid">Hytter</h2>
+    <div class="row row-cols-1  row-cols-md-1  row-cols-lg-3 g-4" style="padding: 5em;">
+      <div class="col">
+        <div class="card">
+          <img src="Images/Hytte2.jpg" class="card-img-top" alt="Hytte1">
+          <div class="card-body">
+            <h5 class="card-title">Hytte 1</h5>
+            <p class="card-text">Hytte med fin beliggenhet med muligheter for fritidsaktiviteter.<br>Hvor: Spegle Oftevatn</p>
+            <button class="modal-button" href="#myModal1">Les mer</button>
+            <div id="myModal1" class="modal">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">×</span>
+                  <h2>Hytte1</h2>
+                </div>
+                <div class="modal-body">
+                  <p style="float: left; padding-top: 1em;">Hytte med fin beliggenhet med muligheter for fritidsaktiviteter.<br>Hvor: Spegle Oftevatn<br><br>
+                  <b>Pris:</b> 1000kr per natt
+                  <br>
+                  <b>Betalingsmåte:</b> Vipps(lage link)</p>
+                  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="float: right; width: 400px;">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="bookingImg" src="Images/Hytte2.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="bookingImg" src="Images/Hytte4.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="bookingImg" src="Images/Hytte5.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="carousel-inner" style="height: 700px; margin-left: auto; margin-right: auto;">
-        <div class="carousel-item active" data-bs-interval="4000" >
-          <img src="Images/HytteLow.jpg" class="d-block w-100" alt="Fjell">
-          <div class="carousel-caption d-none d-md-block">
-          </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="4000">
-          <img src="Images/FjellLow.jpg" class="d-block w-100" alt="Familietur">
-          <div class="carousel-caption d-none d-md-block">
-          </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="4000">
-          <img src="Images/SykkelLow.jpg" class="d-block w-100" alt="Sykkeltur">
-          <div class="carousel-caption d-none d-md-block">
+      <div class="col">
+        <div class="card">
+          <img src="Images/Hytte2.jpg" class="card-img-top" alt="Hytte2">
+          <div class="card-body">
+            <h5 class="card-title">Hytte 2</h5>
+            <p class="card-text">Hytte med fin beliggenhet med muligheter for fritidsaktiviteter.<br>Hvor: Spegle Oftevatn</p>
+            <button class="modal-button" href="#myModal2">Les mer</button>
+            <div id="myModal2" class="modal">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">×</span>
+                  <h2>Hytte2</h2>
+                </div>
+                <div class="modal-body">
+                  <p style="float: left; padding-top: 1em;">Hytte med fin beliggenhet med muligheter for fritidsaktiviteter.<br>Hvor: Spegle Oftevatn<br><br>
+                  <b>Pris:</b> 1000kr per natt
+                  <br>
+                  <b>Betalingsmåte:</b> Vipps(lage link)</p>
+                  <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="carousel" style="float: right; width: 400px;">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="bookingImg" src="Images/Hytte2.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="bookingImg" src="Images/Hytte4.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="bookingImg" src="Images/Hytte5.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <div class="col">
+        <div class="card">
+          <img src="Images/Hytte2.jpg" class="card-img-top" alt="Hytte3">
+          <div class="card-body">
+            <h5 class="card-title">Hytte 3</h5>
+            <p class="card-text">Hytte med fin beliggenhet med muligheter for fritidsaktiviteter.<br>Hvor: Spegle Oftevatn</p>
+            <button class="modal-button" href="#myModal3">Les mer</button>
+            <div id="myModal3" class="modal">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">×</span>
+                  <h2>Hytte3</h2>
+                </div>
+                <div class="modal-body">
+                  <p style="float: left; padding-top: 1em;">Hytte med fin beliggenhet med muligheter for fritidsaktiviteter.<br>Hvor: Spegle Oftevatn<br><br>
+                  <b>Pris:</b> 1000kr per natt
+                  <br>
+                  <b>Betalingsmåte:</b> Vipps(lage link)</p>
+                  <div id="carouselExampleControls3" class="carousel slide" data-bs-ride="carousel" style="float: right; width: 400px;">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="bookingImg" src="Images/Hytte2.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="bookingImg" src="Images/Hytte4.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="bookingImg" src="Images/Hytte5.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls3" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls3" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="Images/Hytte2.jpg" class="card-img-top" alt="Hytte4">
+          <div class="card-body">
+            <h5 class="card-title">Hytte 4</h5>
+            <p class="card-text">Hytte med fin beliggenhet med muligheter for fritidsaktiviteter.<br>Hvor: Spegle Oftevatn</p>
+            <button class="modal-button" href="#myModal4">Les mer</button>
+            <div id="myModal4" class="modal">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">×</span>
+                  <h2>Hytte4</h2>
+                </div>
+                <div class="modal-body">
+                  <p style="float: left; padding-top: 1em;">Hytte med fin beliggenhet med muligheter for fritidsaktiviteter.<br>Hvor: Spegle Oftevatn<br><br>
+                  <b>Pris:</b> 1000kr per natt
+                  <br>
+                  <b>Betalingsmåte:</b> Vipps(lage link)</p>
+                  <div id="carouselExampleControls4" class="carousel slide" data-bs-ride="carousel" style="float: right; width: 400px;">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="bookingImg" src="Images/Hytte2.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="bookingImg" src="Images/Hytte4.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="bookingImg" src="Images/Hytte5.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls4" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls4" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="Images/Hytte2.jpg" class="card-img-top" alt="Hytte5">
+          <div class="card-body">
+            <h5 class="card-title">Hytte 5</h5>
+            <p class="card-text">Hytte med fin beliggenhet med muligheter for fritidsaktiviteter.<br>Hvor: Spegle Oftevatn</p>
+            <button class="modal-button" href="#myModal5">Les mer</button>
+            <div id="myModal5" class="modal">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">×</span>
+                  <h2>Hytte5</h2>
+                </div>
+                <div class="modal-body">
+                  <p style="float: left; padding-top: 1em;">Hytte med fin beliggenhet med muligheter for fritidsaktiviteter.<br>Hvor: Spegle Oftevatn<br><br>
+                  <b>Pris:</b> 1000kr per natt
+                  <br>
+                  <b>Betalingsmåte:</b> Vipps(lage link)</p>
+                  <div id="carouselExampleControls5" class="carousel slide" data-bs-ride="carousel" style="float: right; width: 400px;">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="bookingImg" src="Images/Hytte2.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="bookingImg" src="Images/Hytte4.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="bookingImg" src="Images/Hytte5.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls5" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls5" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="Images/Hytte2.jpg" class="card-img-top" alt="Hytte6">
+          <div class="card-body">
+            <h5 class="card-title">Hytte 6</h5>
+            <p class="card-text">Hytte med fin beliggenhet med muligheter for fritidsaktiviteter.<br>Hvor: Spegle Oftevatn</p>
+            <button class="modal-button" href="#myModal6">Les mer</button>
+            <div id="myModal6" class="modal">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">×</span>
+                  <h2>Hytte6</h2>
+                </div>
+                <div class="modal-body">
+                  <p style="float: left; padding-top: 1em;">Hytte med fin beliggenhet med muligheter for fritidsaktiviteter.<br>Hvor: Spegle Oftevatn<br><br>
+                  <b>Pris:</b> 1000kr per natt
+                  <br>
+                  <b>Betalingsmåte:</b> Vipps(lage link)</p>
+                  <div id="carouselExampleControls6" class="carousel slide" data-bs-ride="carousel" style="float: right; width: 400px;">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="bookingImg" src="Images/Hytte2.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="bookingImg" src="Images/Hytte4.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="bookingImg" src="Images/Hytte5.jpg" class="d-block w-100" alt="HytteBildet">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls6" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls6" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>    
     </div>
-    <img class="mobil" src="Images/HytteLow.jpg">
-    <div class="container pb-3" style="padding-top: 2em; padding-bottom: 2em;">
-        <div class="row">
-          <div class="col col-lg-4 col-md-4 col-sm-10 col-10"> 
-            <img class="imgIndex" src="Images/Hytte1.jpg" alt="Hytte1">
-            <h3>Lorem ipsum dolor sit</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate nostrum ducimus provident officia</p>
-            <button class="modal-button">Les mer</button>
-          </div>
-          <div class="col col-lg-4 col-md-4 col-sm-10 col-10">
-            <img class="imgIndex" src="Images/Polse.jpg" alt="Pølse">
-            <h3>Lorem ipsum dolor sit</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate nostrum ducimus provident officia</p>
-            <button class="modal-button">Les mer</button>
-          </div>
-          <div class="col col-lg-4 col-md-4 col-sm-10 col-10">
-            <img class="imgIndex" src="Images/Hytte3.jpg" alt="Hytte3">
-            <h3>Lorem ipsum dolor sit</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate nostrum ducimus provident officia</p>
-            <button class="modal-button">Les mer</button>
-          </div>
-        </div>
-        <hr>
+    <footer class="bg-dark text-center text-white">
+      <div class="container p-3">
+        <section>
+          <a class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/sanel.pitnjakovic" role="button">
+            <img src="Images/Facebook1R.png" alt="Facebook" style="width: 40px;"></a>
+          <a class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/sanel.pitnjakovic" role="button">
+            <img src="Images/Instagram.jpg" alt="Instagram" style="width: 40px;"></a>
+        </section>
+        <p class="text-center">© 2022 Copyright:</p>
       </div>
-      <div class="container" style="padding-bottom: 2em;">
-       
-        <div class="container">
-          <div class="row">
-            <div class="col col-lg-9 col-md-12 col-sm-12 col-12">
-              <h2 >Aktiviterer</h2>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur possimus vero ut, at, voluptatum voluptates deleniti officia perspiciatis nihil laudantium 
-                blanditiis laborum dolorum cum repellendus optio culpa debitis, maxime tempora. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut eum impedit alias saepe 
-                vitae doloribus ullam provident tenetur explicabo odio enim quos obcaecati, nesciunt voluptas facilis libero tempore nulla sunt? Lorem ipsum dolor sit amet, consectetur 
-                adipisicing elit. Rerum recusandae sed alias natus corporis! Neque impedit eos autem nisi aliquam magni pariatur quos itaque necessitatibus. Modi ex aperiam cumque 
-                molestiae!<br><br>
-
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab earum tenetur voluptas laboriosam distinctio voluptatibus, voluptatum praesentium suscipit repudiandae
-               nesciunt quidem aliquid saepe. Molestiae, expedita sequi porro doloremque repellat animi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis amet 
-               nobis tenetur optio inventore quam alias iusto aspernatur, ea fuga. Nostrum id at similique, exercitationem a facilis sunt dolore fugiat? Lorem ipsum dolor sit amet 
-               consectetur adipisicing elit. Veritatis voluptatibus ducimus quos consectetur corrupti, commodi blanditiis officiis! Aliquid, dicta error? Incidunt dolore quo quaerat 
-               fuga dolorum nam cum, assumenda possimus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, unde quae commodi facere in quia nam ad odit quis ullam error 
-               impedit incidunt voluptatem molestiae sequi eius ducimus explicabo quidem.</p>
-            </div>
-            <div class="col col-lg-3 col-md-6 col-sm-12 col-12">
-              <img src="Images/Fiske.jpg" alt="Fisketur" style="width: 100%;">
-            </div>
-          </div>
-        </div>
-        <br>
-        <hr>
-        <h2>Oversikt over området</h2>
-         <div class="kart">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11456.86946919497!2d8.198331289622407!3d59.494638774431664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4638b6a82c13cfe9%3A0xc2503d466b537ae8!2sOftevatn!5e0!3m2!1sno!2sno!4v1645792042690!5m2!1sno!2sno" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </div>
-      <footer class="bg-dark text-center text-white">
-        <div class="container p-3">
-          <section>
-            <a class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/sanel.pitnjakovic" role="button">
-              <img src="Images/Facebook1R.png" alt="Facebook" style="width: 40px;"></a>
-            <a class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/sanel.pitnjakovic" role="button">
-              <img src="Images/Instagram.jpg" alt="Instagram" style="width: 40px;"></a>
-          </section>
-          <p class="text-center">© 2022 Copyright:</p>
-        </div>
-      </footer>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+    var btn = document.querySelectorAll("button.modal-button");
+
+    var modals = document.querySelectorAll('.modal');
+
+    var spans = document.getElementsByClassName("close");
+
+    for (var i = 0; i < btn.length; i++) {
+    btn[i].onclick = function(e) {
+        e.preventDefault();
+        modal = document.querySelector(e.target.getAttribute("href"));
+        modal.style.display = "block";
+      }
+    }
+    for (var i = 0; i < spans.length; i++) {
+    spans[i].onclick = function() {
+        for (var index in modals) {
+          if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+        }
+      }
+    }
+
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+        for (var index in modals) {
+          if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+        }
+      }
+    }
+    </script>
   </body>
 </html>
