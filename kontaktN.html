@@ -11,14 +11,14 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><img src="Images/logo4.png" alt="Spegle Logo" style="height: 80px; margin: -0.2em;"></a>
+        <a class="navbar-brand" href="indexN.html"><img src="Images/logo4.png" alt="Spegle Logo" style="height: 80px; margin: -0.2em;"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav" style="margin-left: auto;">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="indexN.html">Hjem</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Destinasjoner</a>
@@ -29,7 +29,14 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="booking.html">Booking</a>
+              <a class="nav-link" href="bookingN.html">Booking</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Language</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="kontaktE.html">English <img src="Images/uk.png" style="float: right; width: 25px;"></a></li>
+                <li><a class="dropdown-item" href="#">Norsk<img src="Images/norway.png" style="float: right; width: 25px;"></a></li>
+              </ul>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Kontakt oss</a>
@@ -80,13 +87,13 @@
                 <form action="" method="POST" class="faq-contact-form">
                   <div class="form-outline mb-4">
                     <input type="email" id="form4Example2" class="form-control" name="email" required="" placeholder="Bruker@gmail.com">
-                    <label class="form-label" for="form4Example2" style="margin-left: 0px;">Email address</label>
+                    <label class="form-label" for="form4Example2" style="margin-left: 0px;">Email addresse</label>
                   <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 88.8px;"></div><div class="form-notch-trailing"></div></div></div>
                   <div class="form-outline mb-4">
                     <textarea class="form-control" id="form4Example3" rows="4" name="message" required="" placeholder=". . ."></textarea>
-                    <label class="form-label" for="form4Example3" style="margin-left: 0px;">Message</label>
+                    <label class="form-label" for="form4Example3" style="margin-left: 0px;">Melding</label>
                   <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 60px;"></div><div class="form-notch-trailing"></div></div></div>
-                  <button class="modal-button">Send</button>
+                  <a href="#"><button class="modal-button">Send</button></a>
                   <input type="hidden" name="recaptcha-response" id="recaptchaFaqForm">
                 </form>
               </section>
