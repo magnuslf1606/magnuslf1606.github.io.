@@ -1,6 +1,18 @@
+
 .imgIndex {
     width: 80%;
 }
+.aktiviteterImg {
+    width: 80%;
+    display: none;
+}
+
+@media (min-width: 800px) {
+    .aktiviteterImg {
+        display: block;
+    }
+}
+
 .mobil {
     width: 100%;
     display: none;
@@ -21,6 +33,9 @@
     #carouselExampleControls4 { display: block; }
     #carouselExampleControls5 { display: block; }
     #carouselExampleControls6 { display: block; }
+    #carouselExampleControls7 { display: block; } 
+    #carouselExampleControls8 { display: block; }
+    #carouselExampleControls9 { display: block; }
 
     .mobil {
         display: block;
@@ -36,8 +51,7 @@
        justify-content: space-around;
     }
 }
-/*Carousel cards*/
-
+/*Carousel cards booking*/
 @media (min-width:1102px ) {
     .carouselslide {
         float: right; 
@@ -163,7 +177,7 @@
         margin-right: 5em;
     }
 }
-
+/*Button all sites*/
 .modal-button {
     align-items: center;
     background-color: #0A66C2;
@@ -209,6 +223,8 @@
     background: rgba(0, 0, 0, .08);
     color: rgba(0, 0, 0, .3);
 }
+
+/*Modal på booking siden*/
 .modal {
     display: none; 
     position: fixed; 
@@ -262,8 +278,7 @@
 .modal-header {
     padding: 2px 16px;
     background-color: #0A66C2;
-    color: white;
-    text-align: center;
+    color: white;    
 }
 
 .modal-body {
