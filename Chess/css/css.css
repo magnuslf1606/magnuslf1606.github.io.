@@ -10,7 +10,9 @@
 }
 
 #myBoard {
-  width: 400px;
+  width: 50%;
   z-index: 1000;
-  
+  margin-top: 10%;
+  margin-left: 25%;
+  margin-bottom: 10%;
 }
