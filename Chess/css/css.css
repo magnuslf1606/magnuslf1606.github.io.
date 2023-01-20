@@ -1,0 +1,16 @@
+#victoryWhite {
+  font-size: 30px;
+  position: relative;
+  display: none;
+}
+#victoryBlack {
+  font-size: 30px;
+  position: relative;
+  display: none;
+}
+
+#myBoard {
+  width: 400px;
+  z-index: 1000;
+  
+}
