@@ -20,10 +20,10 @@ function spillerMotRandomAI(farge) {
         white.style = "display: block;"
       return
       } 
-      if (possibleMoves.length > 0) { //Viser fen etter hvit flytter
-        listOverFen.innerHTML += board.fen()+"<br>"
-        
-      }
+      if (possibleMoves.length > 0)  
+        listOverFen.innerHTML = game.history() //Viser trekket etter hvit flytter
+      
+
       var randomIdx = Math.floor(Math.random() * possibleMoves.length)
       game.move(possibleMoves[randomIdx])
       board.position(game.fen())
@@ -71,8 +71,8 @@ function spillerMotRandomAI(farge) {
 
       // make random legal move for black
       window.setTimeout(makeRandomMove, 250)
-      listOverFen.innerHTML += board.fen()+"<br>" //Viser fen etter svart flytter
-      console.log(board.game)
+      listOverFen.innerHTML = game.history() //Viser trekket etter svart flytter
+      
     }
     function onMouseoverSquare (square, piece) {
       // get list of possible moves for this square
@@ -82,7 +82,7 @@ function spillerMotRandomAI(farge) {
       })
     
       // exit if there are no moves available for this square
-      if (moves.length === 0) return
+      if (moves.length === 0) return // HER KAN KASNKJE SVART VINNE
     
       // highlight the square they moused over
       greySquare(square)
@@ -90,6 +90,7 @@ function spillerMotRandomAI(farge) {
       // highlight the possible squares for this piece
       for (var i = 0; i < moves.length; i++) {
         greySquare(moves[i].to)
+        
       }
     }
     
@@ -101,6 +102,7 @@ function spillerMotRandomAI(farge) {
     // for castling, en passant, pawn promotion
     function onSnapEnd () {
       board.position(game.fen())
+      
     }
 
     var config = {
@@ -113,6 +115,7 @@ function spillerMotRandomAI(farge) {
       orientation: farge,
       onSnapEnd: onSnapEnd
     }
+    
 
     board = Chessboard('myBoard', config)
 }
