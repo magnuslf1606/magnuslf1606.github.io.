@@ -816,10 +816,10 @@
         html += '<div class="{row}">'
         for (var j = 0; j < 8; j++) {
           var square = alpha[j] + row
-
+          var fontSize = 25 //Brukes for å endre font på brettet
           html += '<div class="{square} ' + CSS[squareColor] + ' ' +
             'square-' + square + '" ' +
-            'style="width:' + squareSize + 'px;height:' + squareSize + 'px;" ' +
+            'style="width:' + squareSize + 'px;height:' + squareSize + 'px; ' +
             'id="' + squareElsIds[square] + '" ' +
             'data-square="' + square + '">'
 
@@ -827,12 +827,12 @@
             // alpha notation
             if ((orientation === 'white' && row === 1) ||
                 (orientation === 'black' && row === 8)) {
-              html += '<div class="{notation} {alpha}">' + alpha[j] + '</div>'
+              html += '<div class="{notation} {alpha}" style="font-size: ' + fontSize + 'px; color:white;">' + alpha[j] + '</div>'
             }
 
             // numeric notation
             if (j === 0) {
-              html += '<div class="{notation} {numeric}">' + row + '</div>'
+              html += '<div class="{notation} {numeric}" style="font-size: ' + fontSize + 'px; color:white;">' + row + '</div>'
             }
           }
 
