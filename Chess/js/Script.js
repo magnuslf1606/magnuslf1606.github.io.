@@ -18,7 +18,7 @@ function spillerMotRandomAI() {
         const para = document.createElement("h1")
         const node = document.createTextNode("White wins!")
         para.appendChild(node)
-        const element = document.getElementById("victory")
+        const element = document.getElementById("victoryWhite")
         element.appendChild(para);
       return
       }
