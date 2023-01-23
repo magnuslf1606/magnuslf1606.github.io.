@@ -5,3 +5,4 @@ spillet fungerer litt når det vill, avhenging av mengde kaffe det har fått i s
 
 mot bots, mot andre spilleret og skal kunne trene på åpninger
 
+https://sjakktrener.azurewebsites.net/
