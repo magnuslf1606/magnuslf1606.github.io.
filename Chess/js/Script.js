@@ -15,11 +15,8 @@ function spillerMotRandomAI() {
 
       // game over
       if (possibleMoves.length === 0) {
-        const para = document.createElement("h1")
-        const node = document.createTextNode("White wins!")
-        para.appendChild(node)
-        const element = document.getElementById("victoryWhite")
-        element.appendChild(para);
+        var white = document.getElementById("victoryWhite")
+        white.style = "display: block;"
       return
       }
       var randomIdx = Math.floor(Math.random() * possibleMoves.length)
