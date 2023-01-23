@@ -1,4 +1,4 @@
-function spillerMotRandomAI() {
+function spillerMotRandomAI(farge) {
     var board = null
     var game = new Chess()
 
@@ -12,8 +12,6 @@ function spillerMotRandomAI() {
 
     function makeRandomMove () {
       var possibleMoves = game.moves()
-      
-      sound();
 
       // game over
       if (possibleMoves.length === 0) {
@@ -68,8 +66,6 @@ function spillerMotRandomAI() {
 
       // make random legal move for black
       window.setTimeout(makeRandomMove, 250)
-        
-        sound();
     }
     function onMouseoverSquare (square, piece) {
       // get list of possible moves for this square
@@ -107,16 +103,9 @@ function spillerMotRandomAI() {
       onDrop: onDrop,
       onMouseoutSquare: onMouseoutSquare,
       onMouseoverSquare: onMouseoverSquare,
+      orientation: farge,
       onSnapEnd: onSnapEnd
     }
 
     board = Chessboard('myBoard', config)
-}
-
-//make sound 
-function sound() {
-  var snd = new Audio("Chess/js/ChessMoveSound.mp3");
-  snd.volume = 0.5;
-  snd.play();
-  snd.currentTime = 0;
 }
