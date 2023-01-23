@@ -45,16 +45,26 @@
             </div>
         </nav>
 
-        <!-- Brettet -->
-        <div id="victoryWhite">Hvit vant!</div> <!-- Her kommer fargen som vinner -->
-        <div id="victoryBlack">Svart vant!</div> <!-- Her kommer fargen som vinner -->
-        <div id="myBoard"></div>
-        <div id="valgAvFarge">
-            <h1>Velg Farge</h1><br>
-            <img id="whiteKing" src="Chess\img\chesspieces\wikipedia\wK.png" onclick="hentValgtStartSide(whiteKing)">
-            <img id="random" src="Chess\img\chesspieces\wikipedia\random.png" onclick="hentValgtStartSide(random)">
-            <img id="blackKing" src="Chess\img\chesspieces\wikipedia\bK.png" onclick="hentValgtStartSide(blackKing)">
-        </div>
+        <div id="spillMain" class="container text-center">
+            <div class="row" >
+              <div class="col-lg-6">
+                 <!-- Brettet -->
+                <div id="victoryWhite">Hvit vant!</div> <!-- Her kommer fargen som vinner -->
+                    <div id="victoryBlack">Svart vant!</div> <!-- Her kommer fargen som vinner -->
+                    <div id="myBoard"></div>
+                    <div id="valgAvFarge">
+                        <h1>Velg Farge</h1><br>
+                        <img id="whiteKing" src="Chess\img\chesspieces\wikipedia\wK.png" onclick="hentValgtStartSide(whiteKing)">
+                        <img id="random" src="Chess\img\chesspieces\wikipedia\random.png" onclick="hentValgtStartSide(random)">
+                        <img id="blackKing" src="Chess\img\chesspieces\wikipedia\bK.png" onclick="hentValgtStartSide(blackKing)">
+                    </div>
+              </div>
+              <div class="col-lg-6" style="background-color: #303c54; color: white; font-size: 15px;">
+                <h1>Trekk</h1>
+                <div id="listOverFen" style="text-align: left; margin-left: 5%;"></div>
+              </div>
+            </div>
+          </div>
         
         <!-- Footer-->
         <footer class="footer text-center">
@@ -112,7 +122,7 @@
 
                 div.style.border = "2px solid black"
                 valgtSide = div
-                
+
                 switch (div) {
                     case whiteKing : {
                         spillerMotRandomAI("white")
@@ -130,7 +140,7 @@
                         break
                     }  
                 }
-            }
+            } 
         </script>
     </body>
 </html>
