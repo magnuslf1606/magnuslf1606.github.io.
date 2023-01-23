@@ -53,10 +53,8 @@
             <h1>Velg Farge</h1><br>
             <img id="whiteKing" src="Chess\img\chesspieces\wikipedia\wK.png" onclick="hentValgtStartSide(whiteKing)">
             <img id="random" src="Chess\img\chesspieces\wikipedia\random.png" onclick="hentValgtStartSide(random)">
-            <img id="blackKing" src="Chess\img\chesspieces\wikipedia\bK.png" onclick="hentValgtStartSide(blackKing)"><br>
-            <button id="spill" onclick="startSpill()">Spill</button>
+            <img id="blackKing" src="Chess\img\chesspieces\wikipedia\bK.png" onclick="hentValgtStartSide(blackKing)">
         </div>
-        
         
         <!-- Footer-->
         <footer class="footer text-center">
@@ -114,10 +112,8 @@
 
                 div.style.border = "2px solid black"
                 valgtSide = div
-            }
-
-            function startSpill() {
-                switch (valgtSide) {
+                
+                switch (div) {
                     case whiteKing : {
                         spillerMotRandomAI("white")
                         break
