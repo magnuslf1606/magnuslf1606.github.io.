@@ -1,6 +1,7 @@
 function spillerMotRandomAI(farge) {
     var board = null
     var game = new Chess()
+    var listOverFen = document.getElementById("listOverFen")
 
     function onDragStart (source, piece, position, orientation) {
       // do not pick up pieces if the game is over
@@ -18,6 +19,10 @@ function spillerMotRandomAI(farge) {
         var white = document.getElementById("victoryWhite")
         white.style = "display: block;"
       return
+      } 
+      if (possibleMoves.length > 0) { //Viser fen etter hvit flytter
+        listOverFen.innerHTML += board.fen()+"<br>"
+        
       }
       var randomIdx = Math.floor(Math.random() * possibleMoves.length)
       game.move(possibleMoves[randomIdx])
@@ -66,6 +71,8 @@ function spillerMotRandomAI(farge) {
 
       // make random legal move for black
       window.setTimeout(makeRandomMove, 250)
+      listOverFen.innerHTML += board.fen()+"<br>" //Viser fen etter svart flytter
+      console.log(board.game)
     }
     function onMouseoverSquare (square, piece) {
       // get list of possible moves for this square
