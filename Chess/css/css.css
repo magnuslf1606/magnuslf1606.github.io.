@@ -1,11 +1,17 @@
 #victoryWhite {
-  font-size: 30px;
-  position: relative;
+  font-size: 35px;
+  margin-top: 10%;
+  margin-left: 25%;
+  margin-bottom: 10%;
+  z-index: 1000;
   display: none;
 }
 #victoryBlack {
-  font-size: 30px;
-  position: relative;
+  font-size: 35px;
+  margin-top: 10%;
+  margin-left: 25%;
+  margin-bottom: 10%;
+  z-index: 1000;
   display: none;
 }
 
