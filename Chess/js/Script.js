@@ -13,17 +13,17 @@ function spillerMotRandomAI(farge) {
 
     function makeRandomMove () {
       var possibleMoves = game.moves()
-
+      sound()
       // game over
       if (possibleMoves.length === 0) {
         var white = document.getElementById("victoryWhite")
         white.style = "display: block;"
       return
       } 
-      if (possibleMoves.length > 0)  
-        listOverFen.innerHTML = game.history() //Viser trekket etter hvit flytter
-      
-
+      if (possibleMoves.length > 0)   {
+        getHistory()
+        
+      }
       var randomIdx = Math.floor(Math.random() * possibleMoves.length)
       game.move(possibleMoves[randomIdx])
       board.position(game.fen())
@@ -38,7 +38,6 @@ function spillerMotRandomAI(farge) {
 
     function greySquare (square) {
       var $square = $('#myBoard .square-' + square)
-
       var background = whiteSquareGrey
       if ($square.hasClass('black-3c85d')) {
         background = blackSquareGrey
@@ -56,6 +55,7 @@ function spillerMotRandomAI(farge) {
           (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
         return false
       }
+      
     }
 
     function onDrop (source, target) {
@@ -65,13 +65,14 @@ function spillerMotRandomAI(farge) {
         to: target,
         promotion: 'q' // NOTE: always promote to a queen for example simplicity
       })
-
+      
       // illegal move
       if (move === null) return 'snapback'
 
       // make random legal move for black
       window.setTimeout(makeRandomMove, 250)
-      listOverFen.innerHTML = game.history() //Viser trekket etter svart flytter
+      getHistory()
+      sound()
       
     }
     function onMouseoverSquare (square, piece) {
@@ -116,6 +117,19 @@ function spillerMotRandomAI(farge) {
       onSnapEnd: onSnapEnd
     }
     
+    function getHistory() { //Viser trekket etter hvert flytt
+      listOverFen.innerHTML = "" 
+        var arr = game.history()
+        
+        for (let i = 0; i < arr.length; i++)
+          i % 2 == 0 ? listOverFen.innerHTML += arr[i] + ",  " : listOverFen.innerHTML += arr[i] + "<br>"
+    }
+    function sound() {
+      var snd = new Audio("Chess/js/ChessMoveSound.mp3")
+      snd.volume = 0.5
+      snd.play()
+      snd.currentTime = 0
+    }
 
     board = Chessboard('myBoard', config)
 }
