@@ -30,3 +30,9 @@
 #spill {
   margin-left: 8%;
 }
+.btn {
+  background-color: #20bc9c;
+  color: white;
+  width: 25%;
+  font-size: 25px;
+}
