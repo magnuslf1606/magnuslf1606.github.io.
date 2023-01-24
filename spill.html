@@ -142,8 +142,15 @@
                     }  
                 }
             } 
+            var vW = document.getElementById("victoryWhite")
+            var vB = document.getElementById("victoryBlack")
+            var listOverFen = document.getElementById("listOverFen")
+
             function reset() {
                 var board = Chessboard('myBoard')
+                vW.style.display = "none"
+                vB.style.display = "none"
+                listOverFen.innerHTML = ""
             }
         </script>
     </body>
