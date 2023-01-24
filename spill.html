@@ -46,7 +46,7 @@
         </nav>
 
         <div id="spillMain" class="container text-center">
-            <div class="row" >
+            <div class="row">
               <div class="col-lg-6">
                  <!-- Brettet -->
                 <div id="victoryWhite">Hvit vant!</div> <!-- Her kommer fargen som vinner -->
@@ -59,9 +59,10 @@
                         <img id="blackKing" src="Chess\img\chesspieces\wikipedia\bK.png" onclick="hentValgtStartSide(blackKing)">
                     </div>
               </div>
-              <div class="col-lg-6" style="background-color: #303c54; color: white; font-size: 15px;">
-                <h1>Trekk</h1>
-                <div id="listOverFen" style="text-align: left; margin-left: 5%;"></div>
+              <div class="col-lg-6" style="background-color: #303c54; color: white; font-size: 15px; display: flex;">
+                <h1 style="position: relative; left: 40%;">Trekk</h1>
+                <div id="listOverFen" style="position: absolute; margin-left: 2%; margin-top: 5%; text-align: left;"></div>
+                <button onclick="reset()" class="btn" style="align-self: flex-end; position: relative; margin-bottom: 3%; margin-left: 12%;">Reset</button>
               </div>
             </div>
           </div>
@@ -141,6 +142,9 @@
                     }  
                 }
             } 
+            function reset() {
+                var board = Chessboard('myBoard')
+            }
         </script>
     </body>
 </html>
