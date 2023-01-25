@@ -2,7 +2,11 @@ function spillerMotRandomAI(farge, id) {
     var board = null
     var game = new Chess()
     var listOverFen = document.getElementById("listOverFen")
-
+    if(farge === "black") {
+      window.setTimeout(makeRandomMove, 500)
+      getHistory()
+      sound()
+    }
     function onDragStart (source, piece, position, orientation) {
       // do not pick up pieces if the game is over
       if (game.game_over()) return false
@@ -55,7 +59,6 @@ function spillerMotRandomAI(farge, id) {
           (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
         return false
       }
-      
     }
 
     function onDrop (source, target) {
@@ -124,16 +127,20 @@ function spillerMotRandomAI(farge, id) {
         for (let i = 0; i < arr.length; i++)
           i % 2 == 0 ? listOverFen.innerHTML += Math.round(((i+1)/2)) + ".  " + arr[i] + ",  " : listOverFen.innerHTML += arr[i] + "<br>"
     }
+    
     board = Chessboard(id, config)
 }
 
 function loadOpener(id, fen) {
-    board = Chessboard(id, fen)
+  board = Chessboard(id, fen)
+}
+function flipFarge() {
+  board.flip()
 }
 
 function sound() {
-      var snd = new Audio("Chess/js/ChessMoveSound.mp3")
-      snd.volume = 0.5
-      snd.play()
-      snd.currentTime = 0
-    }
+  var snd = new Audio("Chess/js/ChessMoveSound.mp3")
+  snd.volume = 0.5
+  snd.play()
+  snd.currentTime = 0
+}
