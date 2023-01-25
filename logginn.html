@@ -45,19 +45,9 @@
         margin-top: 15%;
         margin-left: 45%;
         max-width: 20%;
-"> IKKE PRØV OG LOGGE INN MED ANDRE FANER OPPE ETC. HA ALT LAGRET d </p>
+"> IKKE PRØV OG LOGGE INN MED ANDRE FANER OPPE ETC. HA ALT LAGRET d s</p>
       
-<script>
-  window.onload = function () {
-    google.accounts.id.initialize({
-      client_id: 'YOUR_GOOGLE_CLIENT_ID',
-      callback: handleCredentialResponse
-    });
-    const parent = document.getElementById('google_btn');
-    google.accounts.id.renderButton(parent, {theme: "filled_blue"});
-    google.accounts.id.prompt();
-  }
-</script>
+
 
 
   <div id="g_id_onload"
@@ -65,8 +55,7 @@
      data-context="signin"
      data-ux_mode="popup"
      data-login_uri="https://sjakktrener.azurewebsites.net/logginn.html"
-     data-auto_prompt="false"  
-       Cross-Origin-Opener-Policy: "same-origin-allow-popups"
+     data-auto_prompt="false"
      style= "
         margin-top: 2%;
         margin-left: 45%;
@@ -80,8 +69,7 @@
      data-theme="filled_blue"
      data-text="signin_with"
      data-size="large"
-     data-logo_alignment="left"
-     Cross-Origin-Opener-Policy: "same-origin-allow-popups"
+     data-logo_alignment="left"  
      style= "
         margin-top: 2%;
         margin-left: 45%;
