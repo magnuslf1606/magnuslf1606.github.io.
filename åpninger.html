@@ -189,25 +189,25 @@
                 if(sicilianskMove === 0) {
                     board.move('e2-e4')
                     sicilianskMove++
-                    return
                 } else if(sicilianskMove === 1) {
                     board.move('c7-c5')
                     sicilianskMove++
-                    return
-                }
+                } else 
+                    return //Forhindrer lyd uten brikke som flytter
+                sound()
                 return
             }
 
             function nextFransk() {
                 if(frenchMove === 0 ){
                     board.move('e2-e4')
-                    frenchMove++
-                    return
+                    frenchMove++                    
                 } else if(frenchMove === 1) {
                     board.move('e7-e5')
                     frenchMove++
-                    return
-                }
+                } else 
+                    return //Forhindrer lyd uten brikke som flytter
+                sound()
                 return
             }
 
@@ -215,44 +215,40 @@
                 if(itallianMove === 0 ){
                     board.move('e2-e4')
                     itallianMove++
-                    return
                 } else if(itallianMove === 1) {
                     board.move('e7-e6')
                     itallianMove++
-                    return
                 } else if(itallianMove === 2) {
                     board.move('g1-f3')
                     itallianMove++
-                    return
                 } else if(itallianMove === 3) {
                     board.move('b8-c6')
                     itallianMove++
-                    return
                 } else if(itallianMove === 4) {
                     board.move('f1-c4')
                     itallianMove++
-                    return
-                } 
+                } else 
+                    return //Forhindrer lyd uten brikke som flytter
+                sound()
+                return
             }
 
             function nextSlavisk() {
                 if(slavicMove === 0 ){
                     board.move('d2-d4')
                     slavicMove++
-                    return
                 } else if(slavicMove === 1) {
                     board.move('d7-d5')
                     slavicMove++
-                    return
                 } else if(slavicMove === 2) {
                     board.move('c2-c4')
                     slavicMove++
-                    return
                 } else if(slavicMove === 3) {
                     board.move('c7-c6')
                     slavicMove++
-                    return
-                }
+                } else 
+                    return //Forhindrer lyd uten brikke som flytter
+                sound()
                 return
             }
 
@@ -260,24 +256,21 @@
                 if(spanishMove === 0 ){
                     board.move('e2-e4')
                     spanishMove++
-                    return
                 } else if(spanishMove === 1) {
                     board.move('e7-e5')
                     spanishMove++
-                    return
                 } else if(spanishMove === 2) {
                     board.move('g1-f3')
                     spanishMove++
-                    return
                 } else if(spanishMove === 3) {
                     board.move('b8-c6')
                     spanishMove++
-                    return
                 } else if(spanishMove === 4) {
                     board.move('f1-b5')
                     spanishMove++
-                    return
-                }
+                } else 
+                    return //Forhindrer lyd uten brikke som flytter
+                sound()
                 return
             }
         </script>
