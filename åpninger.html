@@ -78,7 +78,8 @@
                     </div>
                     <div class="ms-auto p-2" style="margin-top: 15%;"><p>
                         The Italian Game is one of the oldest openings in chess and has been around for centuries. This classical 1.e4 opening can lead to slower and positional games as well as open, tactical battles. Although very common among beginners, the Italian Game is a part of the repertoire of players of every level.</p>
-                        
+                        <button id="nextTrekk" onclick="nextItaliensk('siciliansk')">Neste trekk</button>
+                        <button id="resetTrekk" onclick="resetTrekk('italiensk')">Reset</button>
                     </div>
                     
                   </div><hr>
@@ -102,8 +103,8 @@
                     </div>
                     <div class="ms-auto p-2" style="margin-top: 15%;">
                         <p>The French Defense is one of the most popular Black responses to 1.e4. It has consistently been a part of masters' repertoire since the 1800s and one of the favorites of positional players. Usually leading to slower games, this opening is a good choice for players of all levels.</p>
-                        <button id="nextTrekk" onclick="nextSiciliansk('siciliansk')">Neste trekk</button>
-                        <button id="resetTrekk" onclick="resetTrekk('siciliansk')">Reset</button>
+                        <button id="nextTrekk" onclick="nextFransk()">Neste trekk</button>
+                        <button id="resetTrekk" onclick="resetTrekk('fransk')">Reset</button>
                     </div>
                     </div><hr>
                     <div class="d-flex mb-1">
@@ -194,14 +195,27 @@
                 return
             }
 
-            function nextFrench() {
+            function nextFransk() {
                 if(frenchMove === 0 ){
                     board.move('e2-e4')
                     frenchMove++
                     return
-                } else if() {
-                    board.move('e2-e4')
+                } else if(frenchMove === 1) {
+                    board.move('e7-e5')
                     frenchMove++
+                    return
+                }
+                return
+            }
+
+            function nextItaliensk() {
+                if(itallianMove === 0 ){
+                    board.move('e2-e4')
+                    itallianMove++
+                    return
+                } else if(itallianMove === 1) {
+                    board.move('e7-e6')
+                    itallianMove++
                     return
                 }
                 return
