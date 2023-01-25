@@ -122,7 +122,7 @@ function spillerMotRandomAI(farge) {
         var arr = game.history()
         
         for (let i = 0; i < arr.length; i++)
-          i % 2 == 0 ? listOverFen.innerHTML += arr[i] + ",  " : listOverFen.innerHTML += arr[i] + "<br>"
+          i % 2 == 0 ? listOverFen.innerHTML += Math.round(((i+1)/2)) + ".  " + arr[i] + ",  " : listOverFen.innerHTML += arr[i] + "<br>"
     }
     function sound() {
       var snd = new Audio("Chess/js/ChessMoveSound.mp3")
