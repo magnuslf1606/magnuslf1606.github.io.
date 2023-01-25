@@ -77,14 +77,19 @@
                         <div id="italiensk" style="width: 500px;"></div>
                     </div>
                     <div class="ms-auto p-2" style="margin-top: 15%;"><p>
-                        The Italian Game is one of the oldest openings in chess and has been around for centuries. This classical 1.e4 opening can lead to slower and positional games as well as open, tactical battles. Although very common among beginners, the Italian Game is a part of the repertoire of players of every level.</p></div>
+                        The Italian Game is one of the oldest openings in chess and has been around for centuries. This classical 1.e4 opening can lead to slower and positional games as well as open, tactical battles. Although very common among beginners, the Italian Game is a part of the repertoire of players of every level.</p>
+                        
+                    </div>
                     
                   </div><hr>
                     <div class="d-flex mb-1">
                         <div class="me-auto p-2" style="margin-top: 15%;">
                             <p>The Sicilian Defense is the most popular response to White's 1.e4. Employed by masters and beginners alike, the Sicilian Defense is a reputable and positionally sound opening. Still, the Sicilian is a combative opening that tends to lead to dynamic and sharp positions.<br><br>
 
-                            One of the oldest registered openings, the Sicilian is full of theory and was used by most of the greatest players in history. World champions GMs Bobby Fischer, Garry Kasparov, Viswanathan Anand, Vladimir Kramnik, and Magnus Carlsen are just a few of its adopters.</p></div>
+                            One of the oldest registered openings, the Sicilian is full of theory and was used by most of the greatest players in history. World champions GMs Bobby Fischer, Garry Kasparov, Viswanathan Anand, Vladimir Kramnik, and Magnus Carlsen are just a few of its adopters.</p>
+                            <button id="nextTrekk" onclick="nextSiciliansk('siciliansk')">Neste trekk</button>
+                            <button id="resetTrekk" onclick="resetTrekk('siciliansk')">Reset</button>
+                        </div>
                         <div class="ms-auto p-2"><h2>Siciliansk forsvar</h2>
                             <div id="siciliansk" style="width: 500px;"></div>
                         </div>
@@ -96,11 +101,16 @@
                         <div id="fransk" style="width: 500px;"></div>
                     </div>
                     <div class="ms-auto p-2" style="margin-top: 15%;">
-                        <p>The French Defense is one of the most popular Black responses to 1.e4. It has consistently been a part of masters' repertoire since the 1800s and one of the favorites of positional players. Usually leading to slower games, this opening is a good choice for players of all levels.</p></div>
+                        <p>The French Defense is one of the most popular Black responses to 1.e4. It has consistently been a part of masters' repertoire since the 1800s and one of the favorites of positional players. Usually leading to slower games, this opening is a good choice for players of all levels.</p>
+                        <button id="nextTrekk" onclick="nextSiciliansk('siciliansk')">Neste trekk</button>
+                        <button id="resetTrekk" onclick="resetTrekk('siciliansk')">Reset</button>
+                    </div>
                     </div><hr>
                     <div class="d-flex mb-1">
                         <div class="me-auto p-2" style="margin-top: 15%;">
-                            <p>The Ruy Lopez (also known as the Spanish Opening or Spanish Game) is one of the oldest and most analyzed openings in chess history. Most of the world's top players have adopted this rich opening as part of their repertoire, and many of them play it with both colors. Despite having a large amount of theory, it is an opening that players of all levels can enjoy.</p></div>
+                            <p>The Ruy Lopez (also known as the Spanish Opening or Spanish Game) is one of the oldest and most analyzed openings in chess history. Most of the world's top players have adopted this rich opening as part of their repertoire, and many of them play it with both colors. Despite having a large amount of theory, it is an opening that players of all levels can enjoy.</p>
+                            <
+                        </div>
 
                         <div class="ms-auto p-2"><h2>Spansk åpning</h2>
                             <div id="spansk" style="width: 500px;"></div>
@@ -162,6 +172,40 @@
             loadOpener('spansk', 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3')
             loadOpener('slavisk', 'rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3')
             
+            function resetTrekk(brett) {
+                loadOpener(brett, 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR')
+                sicilianskMove = 0
+                frenchMove = 0
+                slavicMove = 0
+                spanishMove = 0
+                itallianMove = 0
+            }
+            var sicilianskMove = 0, frenchMove = 0, slavicMove = 0, spanishMove = 0, itallianMove = 0;
+            function nextSiciliansk() {
+                if(sicilianskMove === 0) {
+                    board.move('e2-e4')
+                    sicilianskMove++
+                    return
+                } else if(sicilianskMove === 1) {
+                    board.move('c7-c5')
+                    sicilianskMove++
+                    return
+                }
+                return
+            }
+
+            function nextFrench() {
+                if(frenchMove === 0 ){
+                    board.move('e2-e4')
+                    frenchMove++
+                    return
+                } else if() {
+                    board.move('e2-e4')
+                    frenchMove++
+                    return
+                }
+                return
+            }
         </script>
     </body>
 </html>
