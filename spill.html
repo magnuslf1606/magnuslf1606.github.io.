@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="Chess\css\css.css"></link>
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="Chess\js\chessboard-1.0.0.js"></script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.js"></script>-->
         <script src="Chess/js/ChessJs.js"></script>
         <script src="Chess\js\Script.js"></script>
 
@@ -40,7 +41,6 @@
                       <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="åpninger.html">Åpninger</a></li>
                       <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="omoss.html">Om Oss</a></li>
                       <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="logginn.html">Logg inn</a></li>
-                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="stats.html">stats</a></li>
                     </ul>
                 </div>
             </div>
@@ -57,17 +57,38 @@
                         <h1>Velg Farge</h1><br>
                         <img id="whiteKing" src="Chess\img\chesspieces\wikipedia\wK.png" onclick="hentValgtStartSide(whiteKing)">
                         <img id="random" src="Chess\img\chesspieces\wikipedia\random.png" onclick="hentValgtStartSide(random)">
-                        <img id="blackKing" src="Chess\img\chesspieces\wikipedia\bK.png" onclick="hentValgtStartSide(blackKing)">
+                        <img id="blackKing" src="Chess\img\chesspieces\wikipedia\bK.png" onclick="hentValgtStartSide(blackKing)"><br><br>
+                        <div class="form-group" style="font-size: 20px;">
+                            <label for="search-depth">Vannsklighestgrad Svart AI</label>
+                            <select id="search-depth">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3" selected>3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="font-size: 20px;">
+                            <label for="search-depth-white">Vannsklighestgrad Hvit AI</label>
+                            <select id="search-depth-white">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3" selected>3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
                     </div>
+                    
               </div>
               <div class="col-lg-6" style="background-color: #303c54; color: white; font-size: 15px; display: flex;">
                 <h1 style="position: relative; left: 40%;">Trekk</h1>
                 <div id="listOverFen" style="position: absolute; margin-left: 2%; margin-top: 5%; text-align: left;"></div>
-                <button onclick="reset()" class="btn" id="resetKnapp" style="align-self: flex-end; position: relative; margin-bottom: 3%; margin-left: 20%;">Reset</button>
+                <button class="btn" id="resetBtn" style="align-self: flex-end; position: relative; margin-bottom: 3%; margin-left: 20%;">Reset</button>
               </div>
             </div>
           </div>
-        
+          
         <!-- Footer-->
         <footer class="footer text-center">
             <div class="container">
@@ -127,22 +148,20 @@
 
                 switch (div) {
                     case whiteKing : {
-                        spillerMotRandomAI("white", 'myBoard')
+                        spillMotMinMax("white", 'myBoard')
                         break
                     }
                     case blackKing : {
-                        spillerMotRandomAI("black", 'myBoard') 
+                        spillMotMinMax("black", 'myBoard') 
                         break
                     } 
                     case random : {
-                        if (Math.random() > 0.5)
-                            spillerMotRandomAI("white", 'myBoard')
-                        else 
-                            spillerMotRandomAI("black", 'myBoard')
+                        Math.random() > 0.5 ? spillMotMinMax("white", 'myBoard') : spillMotMinMax("black", 'myBoard')
                         break
                     }  
                 }
             } 
+            
             var vW = document.getElementById("victoryWhite")
             var vB = document.getElementById("victoryBlack")
             var listOverFen = document.getElementById("listOverFen")
