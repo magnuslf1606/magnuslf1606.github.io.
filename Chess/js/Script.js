@@ -1,4 +1,4 @@
-function spillerMotRandomAI(farge) {
+function spillerMotRandomAI(farge, id) {
     var board = null
     var game = new Chess()
     var listOverFen = document.getElementById("listOverFen")
@@ -70,7 +70,7 @@ function spillerMotRandomAI(farge) {
       if (move === null) return 'snapback'
 
       // make random legal move for black
-      window.setTimeout(makeRandomMove, 250)
+      window.setTimeout(makeRandomMove, 500)
       getHistory()
       sound()
       
@@ -131,5 +131,9 @@ function spillerMotRandomAI(farge) {
       snd.currentTime = 0
     }
 
-    board = Chessboard('myBoard', config)
+    board = Chessboard(id, config)
+}
+
+function loadOpener(id, fen) {
+    board = Chessboard(id, fen)
 }
