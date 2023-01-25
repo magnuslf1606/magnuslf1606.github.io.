@@ -39,8 +39,7 @@
                       <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Spill</a></li>
                       <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="åpninger.html">Åpninger</a></li>
                       <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="omoss.html">Om Oss</a></li>
-                      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="logginn.html">Min Profil</a></li>
-                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="stats.html">stats</a></li>
+                      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="logginn.html">Logg inn</a></li>
                     </ul>
                 </div>
             </div>
@@ -51,8 +50,8 @@
               <div class="col-lg-6">
                  <!-- Brettet -->
                 <div id="victoryWhite">Hvit vant!</div> <!-- Her kommer fargen som vinner -->
-                    <div id="victoryBlack">Svart vant!</div> <!-- Her kommer fargen som vinner -->
-                    <div id="myBoard"></div>
+                <div id="victoryBlack">Svart vant!</div> <!-- Her kommer fargen som vinner -->
+                <div id="myBoard"></div>
                     <div id="valgAvFarge">
                         <h1>Velg Farge</h1><br>
                         <img id="whiteKing" src="Chess\img\chesspieces\wikipedia\wK.png" onclick="hentValgtStartSide(whiteKing)">
@@ -68,34 +67,39 @@
             </div>
           </div>
         
-       <!-- Footer-->
-       <footer class="footer text-center">
-        <div class="container">
-            <div class="row">
-                <!-- Footer Location-->
-                <div class="col-md-6">
-                    <h4 class="text-uppercase mb-4">Location</h4>
-                    <p class="lead mb-0">
-                        Gullbringvegen 28-30
-                        <br />
-                        Bø, Midt-telemark
-                    </p>
-                </div>
-                <!-- Footer Social Icons-->
-                <div class="col-md-6">
-                    <h4 class="text-uppercase mb-4">Finn oss på Sosiale medier!</h4>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
-                </div>
-                <!-- Footer About Text-->
-                <div class="col-lg-4">
-                    <h4 class="text-uppercase mb-4"></h4>
+        <!-- Footer-->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Location</h4>
+                        <p class="lead mb-0">
+                            2215 John Daniel Drive
+                            <br />
+                            Clark, MO 65243
+                        </p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Around the Web</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                    </div>
+                    <!-- Footer About Text-->
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <p class="lead mb-0">
+                            Freelance is a free to use, MIT licensed Bootstrap theme created by
+                            <a href="http://startbootstrap.com">Start Bootstrap</a>
+                            .
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
 
         <!-- Bootstrap core JS-->
@@ -122,18 +126,18 @@
 
                 switch (div) {
                     case whiteKing : {
-                        spillerMotRandomAI("white")
+                        spillerMotRandomAI("white", 'myBoard')
                         break
                     }
                     case blackKing : {
-                        spillerMotRandomAI("black") 
+                        spillerMotRandomAI("black", 'myBoard') 
                         break
                     } 
                     case random : {
                         if (Math.random() > 0.5)
-                            spillerMotRandomAI("white")
+                            spillerMotRandomAI("white", 'myBoard')
                         else 
-                            spillerMotRandomAI("black")
+                            spillerMotRandomAI("black", 'myBoard')
                         break
                     }  
                 }
