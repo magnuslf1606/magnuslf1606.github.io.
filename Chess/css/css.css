@@ -25,11 +25,11 @@
 #spill {
   margin-left: 8%;
 }
-#resetKnapp {
+#resetKnapp, #nextTrekk, #resetTrekk, #byttSide {
   background-color: #20bc9c;
   color: white;
   width: 25%;
-  font-size: 25px;
+  font-size: 20px;
 }
 #openings p {
   font-size: 20px;
