@@ -127,18 +127,18 @@
 
                 switch (div) {
                     case whiteKing : {
-                        spillerMotRandomAI("white")
+                        spillerMotRandomAI("white", 'myBoard')
                         break
                     }
                     case blackKing : {
-                        spillerMotRandomAI("black") 
+                        spillerMotRandomAI("black", 'myBoard') 
                         break
                     } 
                     case random : {
                         if (Math.random() > 0.5)
-                            spillerMotRandomAI("white")
+                            spillerMotRandomAI("white", 'myBoard')
                         else 
-                            spillerMotRandomAI("black")
+                            spillerMotRandomAI("black", 'myBoard')
                         break
                     }  
                 }
