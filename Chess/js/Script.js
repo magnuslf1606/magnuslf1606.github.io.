@@ -6,7 +6,6 @@ function spillMotMinMax(farge, id) {
  * Copyright (c) 2020 Zhang Zeyu
  */
 
-var STACK_SIZE = 100; // maximum size of undo stack
 
 var board = null;
 var $board = $('#myBoard');
