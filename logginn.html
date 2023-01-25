@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head
-          SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
-          Cross-Origin-Opener-Policy: "same-origin-allow-popups"
-          >
+    <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -48,9 +45,19 @@
         margin-top: 15%;
         margin-left: 45%;
         max-width: 20%;
-"> IKKE PRØV OG LOGGE INN MED ANDRE FANER OPPE ETC. HA ALT LAGRET ds </p>
+"> IKKE PRØV OG LOGGE INN MED ANDRE FANER OPPE ETC. HA ALT LAGRET d </p>
       
-
+<script>
+  window.onload = function () {
+    google.accounts.id.initialize({
+      client_id: 'YOUR_GOOGLE_CLIENT_ID',
+      callback: handleCredentialResponse
+    });
+    const parent = document.getElementById('google_btn');
+    google.accounts.id.renderButton(parent, {theme: "filled_blue"});
+    google.accounts.id.prompt();
+  }
+</script>
 
 
   <div id="g_id_onload"
