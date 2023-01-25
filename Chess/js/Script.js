@@ -124,16 +124,16 @@ function spillerMotRandomAI(farge, id) {
         for (let i = 0; i < arr.length; i++)
           i % 2 == 0 ? listOverFen.innerHTML += Math.round(((i+1)/2)) + ".  " + arr[i] + ",  " : listOverFen.innerHTML += arr[i] + "<br>"
     }
-    function sound() {
-      var snd = new Audio("Chess/js/ChessMoveSound.mp3")
-      snd.volume = 0.5
-      snd.play()
-      snd.currentTime = 0
-    }
-
     board = Chessboard(id, config)
 }
 
 function loadOpener(id, fen) {
     board = Chessboard(id, fen)
 }
+
+function sound() {
+      var snd = new Audio("Chess/js/ChessMoveSound.mp3")
+      snd.volume = 0.5
+      snd.play()
+      snd.currentTime = 0
+    }
