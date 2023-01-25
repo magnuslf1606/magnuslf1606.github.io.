@@ -77,7 +77,7 @@ async function setList(){
 
 function changeMode(text){
     let element = document.getElementsByClassName("selectedOption")[0];
-    element.innerHTML = text + "<img src=Chess/img/chesspieces/Dropdown.png width='15px' style='padding-left: 5px'>";
+    element.innerHTML = text + "<img src=Chess/img/chesspieces/wikipedia/Dropdown.png width='15px' style='padding-left: 5px'>";
     if(text == "Rapid"){selectedMode = "live_rapid";}
     else if(text == "Daily"){selectedMode = "daily";}
     else if(text == "Daily 960") {selectedMode = "daily960";}
