@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        
         <title>Sjakktrener</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -35,115 +36,53 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="spill.html">Spill</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Åpninger</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="omoss.html">Om Oss</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="logginn.html">Min Profil</a></li>
+                      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Spill</a></li>
+                      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="åpninger.html">Åpninger</a></li>
+                      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="omoss.html">Om Oss</a></li>
+                      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="logginn.html">Logg inn</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Sjakktrener</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Lær sjakk på 1-2-3 trekk</p>
+
+        <div id="spillMain" class="container text-center">
+            <div class="row">
+              <div class="col-lg-6">
+                 <!-- Brettet -->
+                <div id="victoryWhite">Hvit vant!</div> <!-- Her kommer fargen som vinner -->
+                <div id="victoryBlack">Svart vant!</div> <!-- Her kommer fargen som vinner -->
+                <div id="myBoard"></div>
+                    <div id="valgAvFarge">
+                        <h1>Velg Farge</h1><br>
+                        <img id="whiteKing" src="Chess\img\chesspieces\wikipedia\wK.png" onclick="hentValgtStartSide(whiteKing)">
+                        <img id="random" src="Chess\img\chesspieces\wikipedia\random.png" onclick="hentValgtStartSide(random)">
+                        <img id="blackKing" src="Chess\img\chesspieces\wikipedia\bK.png" onclick="hentValgtStartSide(blackKing)">
+                    </div>
+              </div>
+              <div class="col-lg-6" style="background-color: #303c54; color: white; font-size: 15px; display: flex;">
+                <h1 style="position: relative; left: 40%;">Trekk</h1>
+                <div id="listOverFen" style="position: absolute; margin-left: 2%; margin-top: 5%; text-align: left;"></div>
+                <button onclick="reset()" class="btn" id="resetKnapp" style="align-self: flex-end; position: relative; margin-bottom: 3%; margin-left: 20%;">Reset</button>
+              </div>
             </div>
-        </header>
-        <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="openings">
-            <div class="container">
-                <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Lær deg åpninger!</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Grid Items-->
-                <hr><div class="d-flex mb-1">
-                    <div class="me-auto p-2"><h2>Italiensk åpning</h2>
-                        <div id="italiensk" style="width: 500px;"></div>
-                    </div>
-                    <div class="ms-auto p-2" style="margin-top: 15%;"><p>
-                        The Italian Game is one of the oldest openings in chess and has been around for centuries. This classical 1.e4 opening can lead to slower and positional games as well as open, tactical battles. Although very common among beginners, the Italian Game is a part of the repertoire of players of every level.</p>
-                        
-                    </div>
-                    
-                  </div><hr>
-                    <div class="d-flex mb-1">
-                        <div class="me-auto p-2" style="margin-top: 15%;">
-                            <p>The Sicilian Defense is the most popular response to White's 1.e4. Employed by masters and beginners alike, the Sicilian Defense is a reputable and positionally sound opening. Still, the Sicilian is a combative opening that tends to lead to dynamic and sharp positions.<br><br>
-
-                            One of the oldest registered openings, the Sicilian is full of theory and was used by most of the greatest players in history. World champions GMs Bobby Fischer, Garry Kasparov, Viswanathan Anand, Vladimir Kramnik, and Magnus Carlsen are just a few of its adopters.</p>
-                            <button id="nextTrekk" onclick="nextSiciliansk('siciliansk')">Neste trekk</button>
-                            <button id="resetTrekk" onclick="resetTrekk('siciliansk')">Reset</button>
-                        </div>
-                        <div class="ms-auto p-2"><h2>Siciliansk forsvar</h2>
-                            <div id="siciliansk" style="width: 500px;"></div>
-                        </div>
-                        
-                    </div><hr>
-
-                <div class="d-flex mb-1">
-                    <div class="me-auto p-2"><h2>Fransk forsvar</h2>
-                        <div id="fransk" style="width: 500px;"></div>
-                    </div>
-                    <div class="ms-auto p-2" style="margin-top: 15%;">
-                        <p>The French Defense is one of the most popular Black responses to 1.e4. It has consistently been a part of masters' repertoire since the 1800s and one of the favorites of positional players. Usually leading to slower games, this opening is a good choice for players of all levels.</p>
-                        <button id="nextTrekk" onclick="nextSiciliansk('siciliansk')">Neste trekk</button>
-                        <button id="resetTrekk" onclick="resetTrekk('siciliansk')">Reset</button>
-                    </div>
-                    </div><hr>
-                    <div class="d-flex mb-1">
-                        <div class="me-auto p-2" style="margin-top: 15%;">
-                            <p>The Ruy Lopez (also known as the Spanish Opening or Spanish Game) is one of the oldest and most analyzed openings in chess history. Most of the world's top players have adopted this rich opening as part of their repertoire, and many of them play it with both colors. Despite having a large amount of theory, it is an opening that players of all levels can enjoy.</p>
-                            <
-                        </div>
-
-                        <div class="ms-auto p-2"><h2>Spansk åpning</h2>
-                            <div id="spansk" style="width: 500px;"></div>
-                        </div>
-                        
-                    </div><hr>
-                    <div class="d-flex mb-1">
-                        <div class="me-auto p-2"><h2>Slavisk forsvar</h2>
-                            <div id="slavisk" style="width: 500px;"></div>
-                        </div>
-                            <div class="ms-auto p-2" style="margin-top: 15%;">
-                            <p>The Slav Defense is a solid opening for Black in response to White's Queen's Gambit (1.d4 d5 2.c4). Black fights for equality against one of White's most popular openings without creating a bad light-squared bishop—one of the downsides of other defenses like the French Defense and the Queen's Gambit Declined.<br><br>
-
-                            An extremely popular opening which has been endorsed by many world champions such as GMs Max Euwe, Mikhail Botvinnik, Vladimir Kramnik, Viswanathan Anand, and Magnus Carlsen. Usually leading to slower games, the Slav is a good choice for players at any level</p></div>
-                    </div><hr>
-        </section>
+          </div>
         
         <!-- Footer-->
         <footer class="footer text-center">
             <div class="container">
                 <div class="row">
                     <!-- Footer Location-->
-                    <div class="col-md-6">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Location</h4>
                         <p class="lead mb-0">
-                            Gullbringvegen 28-30
+                            2215 John Daniel Drive
                             <br />
-                            Bø, Midt-telemark
+                            Clark, MO 65243
                         </p>
                     </div>
                     <!-- Footer Social Icons-->
-                    <div class="col-md-6">
-                        <h4 class="text-uppercase mb-4">Finn oss på Sosiale medier!</h4>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Around the Web</h4>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
@@ -151,55 +90,67 @@
                     </div>
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4"></h4>
+                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <p class="lead mb-0">
+                            Freelance is a free to use, MIT licensed Bootstrap theme created by
+                            <a href="http://startbootstrap.com">Start Bootstrap</a>
+                            .
+                        </p>
                     </div>
                 </div>
             </div>
         </footer>
-        <!-- Copyright Section-->
-        <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; Your Website 2022</small></div>
-        </div>
+
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         <script>
-            loadOpener('italiensk', 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R')
-            loadOpener('siciliansk', 'rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2')
-            loadOpener('fransk', 'rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2')
-            loadOpener('spansk', 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3')
-            loadOpener('slavisk', 'rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3')
-            
-            function resetTrekk(brett) {
-                loadOpener(brett, 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR')
-                sicilianskMove = 0
-                frenchMove = 0
-                slavicMove = 0
-                spanishMove = 0
-                itallianMove = 0
-            }
-            var sicilianskMove = 0, frenchMove = 0, slavicMove = 0, spanishMove = 0, itallianMove = 0;
-            function nextSiciliansk() {
-                if(sicilianskMove === 0) {
-                    board.move('e2-e4')
-                    sicilianskMove++
-                    return
-                } else if(sicilianskMove === 1) {
-                    board.move('c7-c5')
-                    sicilianskMove++
-                    return
-                }
-                return
-            }
+            var board = Chessboard('myBoard')
 
-            function nextFrench() {
-                if(frenchMove === 0 ){
-                    board.move('')
-                    frenchMove++
-                    return
+            var valgtSide
+
+            function hentValgtStartSide(div) {
+                var blackKing = document.getElementById("blackKing")
+                var whiteKing = document.getElementById("whiteKing")
+                var random = document.getElementById("random")
+                
+                blackKing.style.border = "none"
+                whiteKing.style.border = "none"
+                random.style.border = "none"
+
+                div.style.border = "2px solid black"
+                valgtSide = div
+
+                switch (div) {
+                    case whiteKing : {
+                        spillerMotRandomAI("white", 'myBoard')
+                        break
+                    }
+                    case blackKing : {
+                        spillerMotRandomAI("black", 'myBoard') 
+                        break
+                    } 
+                    case random : {
+                        if (Math.random() > 0.5)
+                            spillerMotRandomAI("white", 'myBoard')
+                        else 
+                            spillerMotRandomAI("black", 'myBoard')
+                        break
+                    }  
                 }
+            } 
+            var vW = document.getElementById("victoryWhite")
+            var vB = document.getElementById("victoryBlack")
+            var listOverFen = document.getElementById("listOverFen")
+
+            function reset() {
+                var board = Chessboard('myBoard')
+                vW.style.display = "none"
+                vB.style.display = "none"
+                listOverFen.innerHTML = ""
             }
         </script>
     </body>
