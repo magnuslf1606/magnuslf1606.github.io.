@@ -15,6 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/stats.css">
     </head>
     <body id="page-top">
 
@@ -41,6 +42,26 @@
                 </div>
             </div>
         </nav>
+        
+        //stats
+          <h2 class="subHeading">Stats dine og dine venner:)</h2>
+        <div class="dropdown">
+            <div class="gameModes">
+                <button class="selectedOption" style='font-size: large;'>Rapid<img src="Chess\img\chesspieces\Dropdown.png" width='15px' style='padding-left: 5px'></button>
+                <ul>
+                    <li><button onclick="changeMode('Rapid')">Rapid</button></li>
+                    <li><button onclick="changeMode('Daily')">Daily</button></li>
+                    <li><button onclick="changeMode('Daily 960')">Daily 960</button></li>
+                    <li><button onclick="changeMode('Blitz')">Blitz</button></li>
+                    <li><button onclick="changeMode('Bullet')">Bullet</button></li>
+                    <li><button onclick="changeMode('3 Check')">3 Check</button></li>
+                   
+    
+                </ul>
+            </div>
+        </div>
+    
+        <div class="playerList">
 
     <script>
         var finished_rendering = function() {
