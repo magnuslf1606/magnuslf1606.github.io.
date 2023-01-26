@@ -10,7 +10,7 @@ function spillMotMinMax(farge, id) {
 var board = null;
 var $board = $('#myBoard');
 var game = new Chess();
-var globalSum = 0; // always from black's perspective. Negative for white's perspective.
+var globalSum = -0; // always from black's perspective. Negative for white's perspective.
 var whiteSquareGrey = '#a9a9a9';
 var blackSquareGrey = '#696969';
 
@@ -19,26 +19,18 @@ var squareToHighlight = null;
 var colorToHighlight = null;
 var positionCount;
 
-  if(farge === 'black')  //Hvis man er svart så skal motstander gå først, så random move
-    window.setTimeout(makeRandomMove, 500)
-    
 
+if(farge === 'black') { //Hvis man er svart så skal motstander gå først, så random move
   
-  function makeRandomMove () { // Brukes bare på det første trekket. Første move for hvit er random
-    var possibleMoves = game.moves()
-    sound()
-    getHistory()
-    var randomIdx = Math.floor(Math.random() * possibleMoves.length)
-    game.move(possibleMoves[randomIdx])
-    board.position(game.fen())
-  }
+  game.setTurn('b')
+}
   
-  function getHistory() { //Viser trekket etter hvert flytt
-    listOverFen.innerHTML = "" 
-    var arr = game.history()
-    for (let i = 0; i < arr.length; i++)
-      i % 2 == 0 ? listOverFen.innerHTML += Math.round(((i+1)/2)) + ".  " + arr[i] + ",  " : listOverFen.innerHTML += arr[i] + "<br>"
-  }
+function getHistory() { //Viser trekket etter hvert flytt
+  listOverFen.innerHTML = "" 
+  var arr = game.history()
+  for (let i = 0; i < arr.length; i++)
+    i % 2 == 0 ? listOverFen.innerHTML += Math.round(((i+1)/2)) + ".  " + arr[i] + ",  " : listOverFen.innerHTML += arr[i] + "<br>"
+}
 
 var config = {
   draggable: true,
@@ -336,21 +328,26 @@ function minimax(game, depth, alpha, beta, isMaximizingPlayer, sum, color) {
 }
 
 function checkStatus(color) {
+  var vColor
+  var victory = document.getElementById("victory")
+  color === 'white' ? vColor = 'black' : vColor = 'white'
   if (game.in_checkmate()) {
-    $('#status').html(`<b>Checkmate!</b> Oops, <b>${color}</b> lost.`);
+    victory.innerHTML = vColor + " won!"
+    victory.style = "display: block;"
   } else if (game.insufficient_material()) {
-    $('#status').html(`It's a <b>draw!</b> (Insufficient Material)`);
+    
   } else if (game.in_threefold_repetition()) {
-    $('#status').html(`It's a <b>draw!</b> (Threefold Repetition)`);
+   
   } else if (game.in_stalemate()) {
-    $('#status').html(`It's a <b>draw!</b> (Stalemate)`);
+    victory.innerHTML = "Stalemate!"
+    victory.style = "display: block;"
   } else if (game.in_draw()) {
-    $('#status').html(`It's a <b>draw!</b> (50-move Rule)`);
+    victory.innerHTML = "Draw!"
+    victory.style = "display: block;"
   } else if (game.in_check()) {
-    $('#status').html(`Oops, <b>${color}</b> is in <b>check!</b>`);
+    
     return false;
   } else {
-    $('#status').html(`No check, checkmate, or draw.`);
     return false;
   }
   return true;
@@ -369,7 +366,6 @@ function getBestMove(game, color, currSum) {
     var depth = parseInt($('#search-depth-white').find(':selected').text());
   }
 
-  var d = new Date().getTime();
   var [bestMove, bestMoveValue] = minimax(
     game,
     depth,
@@ -379,13 +375,7 @@ function getBestMove(game, color, currSum) {
     currSum,
     color
   );
-  var d2 = new Date().getTime();
-  var moveTime = d2 - d;
-  var positionsPerS = (positionCount * 1000) / moveTime;
-
-  $('#position-count').text(positionCount);
-  $('#time').text(moveTime / 1000);
-  $('#positions-per-s').text(Math.round(positionsPerS));
+  
 
   return [bestMove, bestMoveValue];
 }
@@ -431,6 +421,8 @@ function makeBestMove(color) {
       .addClass('highlight-' + colorToHighlight);
   }
   sound()
+  if(id === 'myBoard')
+    getHistory()
 }
 
 
@@ -457,7 +449,7 @@ function reset() {
 /*
  * Event listeners for various buttons.
  */
-$('#ruyLopezBtn').on('click', function () {
+$('#spillItaliensk').on('click', function () {
   reset();
   game.load(
     'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1'
@@ -559,9 +551,11 @@ function onDrop(source, target) {
       }, 250);
     }, 250);
   }
-  getHistory()
+  if(id === 'myBoard')
+    getHistory()
   sound()
 }
+
 
 function onMouseoverSquare(square, piece) {
   // get list of possible moves for this square
@@ -589,8 +583,6 @@ function onMouseoutSquare(square, piece) {
 function onSnapEnd() {
   board.position(game.fen());
 }
-
-
 }
 
 
@@ -598,13 +590,9 @@ function onSnapEnd() {
 
 
 
-
-function spillerMotRandomAI(farge, id, pos) {
+function spillMotRandomAi(farge, id) {
   var board = null
   var game = new Chess()
-  var listOverFen = document.getElementById("listOverFen")
-
-  
 
   if(farge === "black") { //Hvis man er svart så skal motstander gå først, så random move
     window.setTimeout(makeRandomMove, 500)
@@ -624,15 +612,9 @@ function spillerMotRandomAI(farge, id, pos) {
     var possibleMoves = game.moves()
     sound()
     // game over
-    if (possibleMoves.length === 0) {
-      var white = document.getElementById("victoryWhite")
-      white.style = "display: block;"
+    if (possibleMoves.length === 0) 
     return
-    } 
-    if (possibleMoves.length > 0)   {
-      getHistory()
-      
-    }
+    
     var randomIdx = Math.floor(Math.random() * possibleMoves.length)
     game.move(possibleMoves[randomIdx])
     board.position(game.fen())
@@ -642,11 +624,11 @@ function spillerMotRandomAI(farge, id, pos) {
   var blackSquareGrey = '#696969'
 
   function removeGreySquares () {
-    $('#myBoard .square-55d63').css('background', '')
+    $('#'+id+' .square-55d63').css('background', '')
   }
 
   function greySquare (square) {
-    var $square = $('#myBoard .square-' + square)
+    var $square = $('#'+id+' .square-' + square)
     var background = whiteSquareGrey
     if ($square.hasClass('black-3c85d')) {
       background = blackSquareGrey
@@ -679,7 +661,6 @@ function spillerMotRandomAI(farge, id, pos) {
 
     // make random legal move for black
     window.setTimeout(makeRandomMove, 500)
-    getHistory()
     sound()
     
   }
@@ -716,7 +697,7 @@ function spillerMotRandomAI(farge, id, pos) {
 
   var config = {
     draggable: true,
-    position: pos,
+    position: 'start',
     onDragStart: onDragStart,
     onDrop: onDrop,
     onMouseoutSquare: onMouseoutSquare,
@@ -724,14 +705,68 @@ function spillerMotRandomAI(farge, id, pos) {
     orientation: farge,
     onSnapEnd: onSnapEnd
   }
-  
-  function getHistory() { //Viser trekket etter hvert flytt
-    listOverFen.innerHTML = "" 
-    var arr = game.history()
-    
-    for (let i = 0; i < arr.length; i++)
-      i % 2 == 0 ? listOverFen.innerHTML += Math.round(((i+1)/2)) + ".  " + arr[i] + ",  " : listOverFen.innerHTML += arr[i] + "<br>"
+  function loadBoardOpener(id, opener) {
+      switch(opener) {
+        case 'italiensk' : {
+          reset();
+          game.load(
+            'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1'
+          );
+          id.position(game.fen());
+          window.setTimeout(function () {
+            makeBestMove('b');
+          }, 250);
+        }
+      }
   }
+  function reset() {
+    game.reset();
+    globalSum = 0;
+    $board.find('.' + squareClass).removeClass('highlight-white');
+    $board.find('.' + squareClass).removeClass('highlight-black');
+    $board.find('.' + squareClass).removeClass('highlight-hint');
+    board.position(game.fen());
+    $('#advantageColor').text('Neither side');
+    $('#advantageNumber').text(globalSum);
+  
+    // Kill the Computer vs. Computer callback
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+  }
+  
+    reset();
+    game.load(
+      'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1'
+    );
+    board.position(game.fen());
+    window.setTimeout(function () {
+      makeBestMove('b');
+    }, 250);
+  
+  $('#italianGameBtn').on('click', function () {
+    reset();
+    game.load(
+      'r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1'
+    );
+    board.position(game.fen());
+    window.setTimeout(function () {
+      makeBestMove('b');
+    }, 250);
+  });
+  $('#sicilianDefenseBtn').on('click', function () {
+    reset();
+    game.load('rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1');
+    board.position(game.fen());
+  });
+  $('#startBtn').on('click', function () {
+    reset();
+  });
+  
+  $('#resetBtn').on('click', function () {
+    reset();
+  });
   
   board = Chessboard(id, config)
 }
@@ -744,7 +779,6 @@ function spillMedAapning(farge, id, arr) {
     window.setTimeout(makeRandomMove, 500)
     sound()
   }
-  
   
   function onDragStart (source, piece, position, orientation) {
     // do not pick up pieces if the game is over
@@ -767,11 +801,11 @@ function spillMedAapning(farge, id, arr) {
   var blackSquareGrey = '#696969'
 
   function removeGreySquares () {
-    $('#myBoard .square-55d63').css('background', '')
+    $('#'+id+' .square-55d63').css('background', '')
   }
 
   function greySquare (square) {
-    var $square = $('#myBoard .square-' + square)
+    var $square = $('#'+id+' .square-' + square)
     var background = whiteSquareGrey
     if ($square.hasClass('black-3c85d')) {
       background = blackSquareGrey
@@ -854,6 +888,8 @@ function spillMedAapning(farge, id, arr) {
   if(arr != null) {
     for (let i = 0; i < arr.length; i++) {
       board.move(arr[i])
+      console.log("now")
+      board.position('r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R');
       
     }
   }
