@@ -89,7 +89,7 @@
                                     <button id="nextTrekk" class="btn" onclick="nextItaliensk()">Neste trekk</button>
                                     <button id="resetTrekk" class="btn" onclick="resetTrekk('italiensk')">Reset</button><br><br>
                                     <button id="byttSide" class="btn" onclick="flipFarge(itallianFarge)">Bytt side</button>
-                                    <button id="spillBrett" class="btn" onclick="spillBrett('italiensk', ['e2-e4','e7-e6','g1-f3','b8-c6','f1-c4'])">Spill selv</button>
+                                    <button id="spillBrett" class="btn" onclick="spillBrett(itallianFarge, 'italiensk')">Spill selv</button>
                                 </div>
                             </div>
                         </div>
@@ -107,6 +107,7 @@
                                     <button id="nextTrekk" class="btn" onclick="nextSiciliansk()">Neste trekk</button>
                                     <button id="resetTrekk" class="btn" onclick="resetTrekk('siciliansk')">Reset</button>
                                     <button id="byttSide" class="btn" onclick="flipFarge(sicilianskFarge)">Bytt side</button>
+                                    <button id="spillBrett" class="btn" onclick="spillBrett(sicilianskFarge, 'siciliansk')">Spill selv</button>
                                 </div>
                             </div>
                             <div class="col" style="display: flex;">
@@ -132,6 +133,7 @@
                                     <button id="nextTrekk" class="btn" onclick="nextFransk()">Neste trekk</button>
                                     <button id="resetTrekk" class="btn" onclick="resetTrekk('fransk')">Reset</button>
                                     <button id="byttSide" class="btn" onclick="flipFarge(frenchFarge)">Bytt side</button>
+                                    <button id="spillBrett" class="btn" onclick="spillBrett(frenchFarge, 'fransk')">Spill selv</button>
                                 </div>
                             </div>
                         </div>
@@ -147,6 +149,7 @@
                                     <button id="nextTrekk" class="btn" onclick="nextSpansk()">Neste trekk</button>
                                     <button id="resetTrekk" class="btn" onclick="resetTrekk('spansk')">Reset</button>
                                     <button id="byttSide" class="btn" onclick="flipFarge(spanishFarge)">Bytt side</button>
+                                    <button id="spillBrett" class="btn" onclick="spillBrett(spanishFarge, 'spansk')">Spill selv</button>
                                 </div>
                             </div>
                             <div class="col" style="display: flex;">
@@ -174,6 +177,7 @@
                                     <button id="nextTrekk" class="btn" onclick="nextSlavisk()">Neste trekk</button>
                                     <button id="resetTrekk" class="btn" onclick="resetTrekk('slavisk')">Reset</button>
                                     <button id="byttSide" class="btn" onclick="flipFarge(slavicFarge)">Bytt side</button>
+                                    <button id="spillBrett" class="btn" onclick="spillBrett(slavicFarge, 'slavisk')">Spill selv</button>
                                 </div>
                             </div>
                         </div>
@@ -223,7 +227,7 @@
         <script>
             loadOpener('italiensk', 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R')
             loadOpener('siciliansk', 'rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2')
-            loadOpener('fransk', 'rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2')
+            loadOpener('fransk', 'rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2')
             loadOpener('spansk', 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3')
             loadOpener('slavisk', 'rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3')
             
@@ -237,8 +241,13 @@
                 slavicMove = 0
                 spanishMove = 0
                 itallianMove = 0
+                sicilianskFarge = 'white'
+                frenchFarge = 'white'
+                slavicFarge = 'white'
+                spanishFarge = 'white'
+                itallianFarge = 'white'
             }
-
+            //For å fikse bug med at man kan ednre bruikker på sist brukte brett --> setter alle variablene (frechMove) = maks trekk for den åpningen
             function nextSiciliansk() {
                 if(sicilianskMove === 0) {
                     board.move('e2-e4')
@@ -323,12 +332,35 @@
                 sound()
             }
 
-            function spillBrett(id, arr) {
-                spillMedAapning(board.orientation(), id, arr)
+            function spillBrett(farge, id, arr) {
+                console.log(farge)
+                spillMedAapning(farge, id, arr)
             }
             function flipFarge(brett) { //Bytter side
                 board.flip() //flipper
-                brett = board.orientation() // Brett = eks: frenchFarge = den siden man bytter til (eks: svart)
+                switch(brett) { //Endrer variablene som tar vare på nåværende farge på alle brett
+                    case itallianFarge : {
+                        itallianFarge = board.orientation()
+                        break
+                    }
+                    case frenchFarge : {
+                        frenchFarge = board.orientation()
+                        break
+                    }
+                    case slavicFarge : {
+                        slavicFarge = board.orientation()
+                        //slavicFarge === 'white' ? slavicFarge = 'black' : slavicFarge = 'white'
+                        break
+                    }
+                    case spanishFarge : {
+                        spanishFarge = board.orientation()
+                        break
+                    }
+                    case sicilianskFarge : {
+                        sicilianskFarge = board.orientation()
+                        break
+                    }
+                }                
             }
         </script>
     </body>
