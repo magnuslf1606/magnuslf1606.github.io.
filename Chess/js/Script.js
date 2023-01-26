@@ -15,9 +15,7 @@ var whiteSquareGrey = '#a9a9a9';
 var blackSquareGrey = '#696969';
 
 var squareClass = 'square-55d63';
-var squareToHighlight = null;
-var colorToHighlight = null;
-var positionCount;
+
 
 
 if(farge === 'black') { //Hvis man er svart så skal motstander gå først, så random move
@@ -44,7 +42,6 @@ var config = {
 };
 board = Chessboard(id, config);
 
-timer = null;
 
 /*
  * Piece Square Tables, adapted from Sunfish.py:
@@ -397,90 +394,13 @@ function makeBestMove(color) {
 
   if (color === 'b') {
     checkStatus('black');
-
-    // Highlight black move
-    $board.find('.' + squareClass).removeClass('highlight-black');
-    $board.find('.square-' + move.from).addClass('highlight-black');
-    squareToHighlight = move.to;
-    colorToHighlight = 'black';
-
-    $board
-      .find('.square-' + squareToHighlight)
-      .addClass('highlight-' + colorToHighlight);
   } else {
     checkStatus('white');
-
-    // Highlight white move
-    $board.find('.' + squareClass).removeClass('highlight-white');
-    $board.find('.square-' + move.from).addClass('highlight-white');
-    squareToHighlight = move.to;
-    colorToHighlight = 'white';
-
-    $board
-      .find('.square-' + squareToHighlight)
-      .addClass('highlight-' + colorToHighlight);
   }
   sound()
   if(id === 'myBoard')
     getHistory()
 }
-
-
-/*
- * Resets the game to its initial state.
- */
-function reset() {
-  game.reset();
-  globalSum = 0;
-  $board.find('.' + squareClass).removeClass('highlight-white');
-  $board.find('.' + squareClass).removeClass('highlight-black');
-  $board.find('.' + squareClass).removeClass('highlight-hint');
-  board.position(game.fen());
-  $('#advantageColor').text('Neither side');
-  $('#advantageNumber').text(globalSum);
-
-  // Kill the Computer vs. Computer callback
-  if (timer) {
-    clearTimeout(timer);
-    timer = null;
-  }
-}
-
-/*
- * Event listeners for various buttons.
- */
-$('#spillItaliensk').on('click', function () {
-  reset();
-  game.load(
-    'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1'
-  );
-  board.position(game.fen());
-  window.setTimeout(function () {
-    makeBestMove('b');
-  }, 250);
-});
-$('#italianGameBtn').on('click', function () {
-  reset();
-  game.load(
-    'r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1'
-  );
-  board.position(game.fen());
-  window.setTimeout(function () {
-    makeBestMove('b');
-  }, 250);
-});
-$('#sicilianDefenseBtn').on('click', function () {
-  reset();
-  game.load('rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1');
-  board.position(game.fen());
-});
-$('#startBtn').on('click', function () {
-  reset();
-});
-
-$('#resetBtn').on('click', function () {
-  reset();
-});
 
 
 /*
@@ -530,16 +450,6 @@ function onDrop(source, target) {
 
   globalSum = evaluateBoard(game, move, globalSum, 'b');
 
-  // Highlight latest move
-  $board.find('.' + squareClass).removeClass('highlight-white');
-
-  $board.find('.square-' + move.from).addClass('highlight-white');
-  squareToHighlight = move.to;
-  colorToHighlight = 'white';
-
-  $board
-    .find('.square-' + squareToHighlight)
-    .addClass('highlight-' + colorToHighlight);
 
   if (!checkStatus('black'));
   {
