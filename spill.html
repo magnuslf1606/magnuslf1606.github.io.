@@ -21,7 +21,6 @@
         <link rel="stylesheet" href="Chess\css\css.css"></link>
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="Chess\js\chessboard-1.0.0.js"></script>
-        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.js"></script>-->
         <script src="Chess/js/ChessJs.js"></script>
         <script src="Chess\js\Script.js"></script>
 
@@ -50,8 +49,7 @@
             <div class="row">
               <div class="col-lg-6">
                  <!-- Brettet -->
-                <div id="victoryWhite">Hvit vant!</div> <!-- Her kommer fargen som vinner -->
-                <div id="victoryBlack">Svart vant!</div> <!-- Her kommer fargen som vinner -->
+                <div id="victory"></div> <!-- Her kommer fargen som vinner -->
                 <div id="myBoard"></div>
                     <div id="valgAvFarge">
                         <h1>Velg Farge</h1><br>
@@ -162,14 +160,12 @@
                 }
             } 
             
-            var vW = document.getElementById("victoryWhite")
-            var vB = document.getElementById("victoryBlack")
+            var w = document.getElementById("victory")
             var listOverFen = document.getElementById("listOverFen")
 
             function reset() {
                 var board = Chessboard('myBoard')
-                vW.style.display = "none"
-                vB.style.display = "none"
+                w.style.display = "none"
                 listOverFen.innerHTML = ""
             }
         </script>
