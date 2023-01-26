@@ -587,198 +587,9 @@ function onSnapEnd() {
 
 
 
-
-
-
-function spillMotRandomAi(farge, id) {
-  var board = null
-  var game = new Chess()
-
-  if(farge === "black") { //Hvis man er svart så skal motstander gå først, så random move
-    window.setTimeout(makeRandomMove, 500)
-    getHistory()
-    sound()
-  }
-  
-  function onDragStart (source, piece, position, orientation) {
-    // do not pick up pieces if the game is over
-    if (game.game_over()) return false
-
-    // only pick up pieces for White
-    if (piece.search(/^b/) !== -1) return false
-  }
-
-  function makeRandomMove () {
-    var possibleMoves = game.moves()
-    sound()
-    // game over
-    if (possibleMoves.length === 0) 
-    return
-    
-    var randomIdx = Math.floor(Math.random() * possibleMoves.length)
-    game.move(possibleMoves[randomIdx])
-    board.position(game.fen())
-  }
-
-  var whiteSquareGrey = '#a9a9a9'
-  var blackSquareGrey = '#696969'
-
-  function removeGreySquares () {
-    $('#'+id+' .square-55d63').css('background', '')
-  }
-
-  function greySquare (square) {
-    var $square = $('#'+id+' .square-' + square)
-    var background = whiteSquareGrey
-    if ($square.hasClass('black-3c85d')) {
-      background = blackSquareGrey
-    }
-
-    $square.css('background', background)
-  }
-
-  function onDragStart (source, piece) {
-    // do not pick up pieces if the game is over
-    if (game.game_over()) return false
-
-    // or if it's not that side's turn
-    if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
-        (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
-      return false
-    }
-  }
-
-  function onDrop (source, target) {
-    // see if the move is legal
-    var move = game.move({
-      from: source,
-      to: target,
-      promotion: 'q' // NOTE: always promote to a queen for example simplicity
-    })
-    
-    // illegal move
-    if (move === null) return 'snapback'
-
-    // make random legal move for black
-    window.setTimeout(makeRandomMove, 500)
-    sound()
-    
-  }
-  function onMouseoverSquare (square, piece) {
-    // get list of possible moves for this square
-    var moves = game.moves({
-      square: square,
-      verbose: true
-    })
-  
-    // exit if there are no moves available for this square
-    if (moves.length === 0) return // HER KAN KASNKJE SVART VINNE
-  
-    // highlight the square they moused over
-    greySquare(square)
-  
-    // highlight the possible squares for this piece
-    for (var i = 0; i < moves.length; i++) {
-      greySquare(moves[i].to)
-      
-    }
-  }
-  
-  function onMouseoutSquare (square, piece) {
-    removeGreySquares()
-  }
-
-  // update the board position after the piece snap
-  // for castling, en passant, pawn promotion
-  function onSnapEnd () {
-    board.position(game.fen())
-    
-  }
-
-  var config = {
-    draggable: true,
-    position: 'start',
-    onDragStart: onDragStart,
-    onDrop: onDrop,
-    onMouseoutSquare: onMouseoutSquare,
-    onMouseoverSquare: onMouseoverSquare,
-    orientation: farge,
-    onSnapEnd: onSnapEnd
-  }
-  function loadBoardOpener(id, opener) {
-      switch(opener) {
-        case 'italiensk' : {
-          reset();
-          game.load(
-            'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1'
-          );
-          id.position(game.fen());
-          window.setTimeout(function () {
-            makeBestMove('b');
-          }, 250);
-        }
-      }
-  }
-  function reset() {
-    game.reset();
-    globalSum = 0;
-    $board.find('.' + squareClass).removeClass('highlight-white');
-    $board.find('.' + squareClass).removeClass('highlight-black');
-    $board.find('.' + squareClass).removeClass('highlight-hint');
-    board.position(game.fen());
-    $('#advantageColor').text('Neither side');
-    $('#advantageNumber').text(globalSum);
-  
-    // Kill the Computer vs. Computer callback
-    if (timer) {
-      clearTimeout(timer);
-      timer = null;
-    }
-  }
-  
-    reset();
-    game.load(
-      'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1'
-    );
-    board.position(game.fen());
-    window.setTimeout(function () {
-      makeBestMove('b');
-    }, 250);
-  
-  $('#italianGameBtn').on('click', function () {
-    reset();
-    game.load(
-      'r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1'
-    );
-    board.position(game.fen());
-    window.setTimeout(function () {
-      makeBestMove('b');
-    }, 250);
-  });
-  $('#sicilianDefenseBtn').on('click', function () {
-    reset();
-    game.load('rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1');
-    board.position(game.fen());
-  });
-  $('#startBtn').on('click', function () {
-    reset();
-  });
-  
-  $('#resetBtn').on('click', function () {
-    reset();
-  });
-  
-  board = Chessboard(id, config)
-}
-
-function spillMedAapning(farge, id, arr) {
+function spillMedAapning(farge, id) {
   var board = null
   var game = new Chess()  
-
-  if(farge === "black") { //Hvis man er svart så skal motstander gå først, så random move
-    window.setTimeout(makeRandomMove, 500)
-    sound()
-  }
   
   function onDragStart (source, piece, position, orientation) {
     // do not pick up pieces if the game is over
@@ -885,12 +696,69 @@ function spillMedAapning(farge, id, arr) {
 
   board = Chessboard(id, config)
   
-  if(arr != null) {
-    for (let i = 0; i < arr.length; i++) {
-      board.move(arr[i])
-      console.log("now")
-      board.position('r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R');
-      
+  //Laster inn riktig åpning
+
+  switch(farge) {
+    case 'white' : {
+      switch(id) {
+        case 'italiensk' : {
+          board.position('r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1')
+          game.load('r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1')
+          break
+        }
+        case 'siciliansk' : {
+          board.position('rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2')
+          game.load('rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2')
+          break
+        }
+        case 'fransk' : {
+          board.position('rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2')
+          game.load('rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2')
+          break
+        }
+        case 'spansk' : {
+          board.position('r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3')
+          game.load('r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3')
+          break
+        }
+        case 'slavisk' : {
+          board.position('rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3')
+          game.load('rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3')
+          break
+        }
+      }
+      window.setTimeout(makeRandomMove, 500)
+      break
+    }
+    case 'black': {
+      switch(id) {
+        case 'italiensk' : {
+          board.position('r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1')
+          game.load('r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1')
+          break
+        }
+        case 'siciliansk' : {
+          board.position('rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2')
+          game.load('rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2')
+          break
+        }
+        case 'fransk' : {
+          board.position('rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2')
+          game.load('rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2')
+          break
+        }
+        case 'spansk' : {
+          board.position('r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3')
+          game.load('r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3')
+          break
+        }
+        case 'slavisk' : {
+          board.position('rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3')
+          game.load('rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3')
+          break
+        }
+      }
+      break
     }
   }
 }
