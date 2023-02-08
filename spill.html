@@ -164,9 +164,11 @@
             var listOverFen = document.getElementById("listOverFen")
 
             function reset() {
-                var board = Chessboard('myBoard')
+                function reset() {
+                board = Chessboard('myBoard')
                 w.style.display = "none"
                 listOverFen.innerHTML = ""
+                valgtSide.style.border = "none"
             }
         </script>
     </body>
