@@ -338,11 +338,9 @@ function minimax(game, depth, alpha, beta, isMaximizingPlayer, sum, color) {
 }
 
 function checkStatus(color) {
-  var vColor
   var victory = document.getElementById("victory")
-  color === 'white' ? vColor = 'black' : vColor = 'white'
   if (game.in_checkmate()) {
-    victory.innerHTML = vColor + " won!"
+    victory.innerHTML = color + " won!"
     victory.style = "display: block;"
   } else if (game.insufficient_material()) {
     
@@ -355,7 +353,6 @@ function checkStatus(color) {
     victory.innerHTML = "Draw!"
     victory.style = "display: block;"
   } else if (game.in_check()) {
-    
     return false;
   } else {
     return false;
