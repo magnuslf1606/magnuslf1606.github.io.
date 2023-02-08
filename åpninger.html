@@ -74,7 +74,7 @@
                                     <button id="nextTrekk" class="btn" onclick="nextItaliensk()">Neste trekk</button>
                                     <button id="resetTrekk" class="btn" onclick="resetTrekk('italiensk')">Reset</button><br><br>
                                     <button id="byttSide" class="btn" onclick="flipFarge(itallianFarge)">Bytt side</button>
-                                    <button id="spillBrett" class="btn" onclick="spillBrett(itallianFarge, 'italiensk')">Spill selv</button>
+                                    <button id="spillBrett" class="btn" onclick="spillBrett('italiensk')">Spill selv</button>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                                     <button id="nextTrekk" class="btn" onclick="nextSiciliansk()">Neste trekk</button>
                                     <button id="resetTrekk" class="btn" onclick="resetTrekk('siciliansk')">Reset</button><br><br>
                                     <button id="byttSide" class="btn" onclick="flipFarge(sicilianskFarge)">Bytt side</button>
-                                    <button id="spillBrett" class="btn" onclick="spillBrett(sicilianskFarge, 'siciliansk')">Spill selv</button>
+                                    <button id="spillBrett" class="btn" onclick="spillBrett('siciliansk')">Spill selv</button>
                                 </div>
                             </div>
                             <div class="col" style="display: flex;">
@@ -118,7 +118,7 @@
                                     <button id="nextTrekk" class="btn" onclick="nextFransk()">Neste trekk</button>
                                     <button id="resetTrekk" class="btn" onclick="resetTrekk('fransk')">Reset</button><br><br>
                                     <button id="byttSide" class="btn" onclick="flipFarge(frenchFarge)">Bytt side</button>
-                                    <button id="spillBrett" class="btn" onclick="spillBrett(frenchFarge, 'fransk')">Spill selv</button>
+                                    <button id="spillBrett" class="btn" onclick="spillBrett('fransk')">Spill selv</button>
                                 </div>
                             </div>
                         </div>
@@ -134,7 +134,7 @@
                                     <button id="nextTrekk" class="btn" onclick="nextSpansk()">Neste trekk</button>
                                     <button id="resetTrekk" class="btn" onclick="resetTrekk('spansk')">Reset</button><br><br>
                                     <button id="byttSide" class="btn" onclick="flipFarge(spanishFarge)">Bytt side</button>
-                                    <button id="spillBrett" class="btn" onclick="spillBrett(spanishFarge, 'spansk')">Spill selv</button>
+                                    <button id="spillBrett" class="btn" onclick="spillBrett('spansk')">Spill selv</button>
                                 </div>
                             </div>
                             <div class="col" style="display: flex;">
@@ -162,7 +162,7 @@
                                     <button id="nextTrekk" class="btn" onclick="nextSlavisk()">Neste trekk</button>
                                     <button id="resetTrekk" class="btn" onclick="resetTrekk('slavisk')">Reset</button><br><br>
                                     <button id="byttSide" class="btn" onclick="flipFarge(slavicFarge)">Bytt side</button>
-                                    <button id="spillBrett" class="btn" onclick="spillBrett(slavicFarge, 'slavisk')">Spill selv</button>
+                                    <button id="spillBrett" class="btn" onclick="spillBrett('slavisk')">Spill selv</button>
                                 </div>
                             </div>
                         </div>
@@ -221,16 +221,6 @@
 
             function resetTrekk(brett) {
                 loadOpener(brett, 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR')
-                sicilianskMove = 0
-                frenchMove = 0
-                slavicMove = 0
-                spanishMove = 0
-                itallianMove = 0
-                sicilianskFarge = 'white'
-                frenchFarge = 'white'
-                slavicFarge = 'white'
-                spanishFarge = 'white'
-                itallianFarge = 'white'
             }
             //For å fikse bug med at man kan ednre bruikker på sist brukte brett --> setter alle variablene (frechMove) = maks trekk for den åpningen
             function nextSiciliansk() {
@@ -250,7 +240,7 @@
                     board.move('e2-e4')
                     frenchMove++                    
                 } else if(frenchMove === 1) {
-                    board.move('e7-e5')
+                    board.move('e7-e6')
                     frenchMove++
                 } else 
                     return //Forhindrer lyd uten brikke som flytter
@@ -317,35 +307,11 @@
                 sound()
             }
 
-            function spillBrett(farge, id, arr) {
-                console.log(farge)
-                spillMedAapning(farge, id, arr)
-            }
+            function spillBrett(id) {
+                spillMedAapning(board.orientation(), id)
+            } 
             function flipFarge(brett) { //Bytter side
                 board.flip() //flipper
-                switch(brett) { //Endrer variablene som tar vare på nåværende farge på alle brett
-                    case itallianFarge : {
-                        itallianFarge = board.orientation()
-                        break
-                    }
-                    case frenchFarge : {
-                        frenchFarge = board.orientation()
-                        break
-                    }
-                    case slavicFarge : {
-                        slavicFarge = board.orientation()
-                        //slavicFarge === 'white' ? slavicFarge = 'black' : slavicFarge = 'white'
-                        break
-                    }
-                    case spanishFarge : {
-                        spanishFarge = board.orientation()
-                        break
-                    }
-                    case sicilianskFarge : {
-                        sicilianskFarge = board.orientation()
-                        break
-                    }
-                }                
             }
         </script>
     </body>
