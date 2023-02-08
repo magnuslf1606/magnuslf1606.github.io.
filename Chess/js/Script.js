@@ -337,7 +337,7 @@ function minimax(game, depth, alpha, beta, isMaximizingPlayer, sum, color) {
 function checkStatus(color) {
   var victory = document.getElementById("victory")
   var c = color;
-  if(color === "black") c = "White"
+  color === "white" ? c == "Black" : c == "White";
   if (game.in_checkmate()) {
     victory.innerHTML = c + " won!"
     victory.style = "display: block;"
