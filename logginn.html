@@ -19,6 +19,7 @@
         
         
     </head>
+   
     <body id="page-top">
          <script>
             Cross-Origin-Opener-Policy; "same-origin-allow-popups";
@@ -51,14 +52,56 @@
         max-width: 20%;
 "> IKKE PRØV OG LOGGE INN MED ANDRE FANER OPPE ETC. HA ALT LAGRET ds ss</p>
       
+      <script>
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "firebase/app";
+        import { getAnalytics } from "firebase/analytics";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+    
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+         apiKey: "AIzaSyD5aMpiqtIp69EhJ1z4Z61npB1j33ZW0CI",
+          authDomain: "sjakktrener-faaf4.firebaseapp.com",
+          projectId: "sjakktrener-faaf4",
+          storageBucket: "sjakktrener-faaf4.appspot.com",
+          messagingSenderId: "841442428087",
+         appId: "1:841442428087:web:ea64013ca97f9d9b28b932",
+         measurementId: "G-KJQRPJ9XZ3"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+    
+        //tester liste greie
+        async function getCities(db) {
+  const citiesCol = collection(db, 'cities');
+  const citySnapshot = await getDocs(citiesCol);
+  const cityList = citySnapshot.docs.map(doc => doc.data());
+  return cityList;
+}
+        </script>
 
+          //https://www.youtube.com/watch?v=KnAsYNhI_CY se denne driten, viser hva du skal even
+
+<div class="contain mt3">
+    <table class="table table-dark">
+        <thead>
+            
+        </thead>
+    </table>
+</div>
+        
 
 
   <div id="g_id_onload"
      data-client_id="501889005127-450u4pfnj8sbuu4p414bg27m275hnsu6.apps.googleusercontent.com"
      data-context="signin"
      data-ux_mode="popup"
-     data-login_uri="https://magnuslf1606.github.io"
+     data-login_uri="https://sjakktrener-faaf4.web.app/logginn.html"
      data-auto_prompt="false"
      style= "
         margin-top: 2%;
@@ -79,7 +122,7 @@
         margin-left: 45%;
         max-width: 20%;
 ">
-        
+
     
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
